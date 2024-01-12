@@ -4,6 +4,7 @@ import { ProtectedRoute, ProtectedRouteAdmin } from "./protectedRoutes";
 import HomePage from "../pages/clients/home";
 import RegisterClient from "../pages/clients/register";
 import LoginClient from "../pages/clients/login";
+import SearchPage from "../pages/clients/search";
   
   const SetupRouters = () => {
     return (
@@ -11,7 +12,7 @@ import LoginClient from "../pages/clients/login";
         {/*Landingpage Routes*/}
         <Route path="/" element={<HomePage/>} />
         <Route path="/register" element={<RegisterClient/>} />
-        <Route path="/flight/search" element={''} />
+        <Route path="/flight/search" element={<SearchPage/>} />
         <Route path="/flight/details" element={''} />
 
         {/*Protected Routes*/}
