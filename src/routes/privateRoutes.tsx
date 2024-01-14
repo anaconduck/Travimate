@@ -10,9 +10,9 @@ export function PrivateRoute() {
   // }
   
   return (
-    <LayoutClient>
+    <>
       <Outlet />
-    </LayoutClient>
+    </>
   );
 }
 

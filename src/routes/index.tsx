@@ -5,6 +5,7 @@ import HomePage from "../pages/clients/home";
 import RegisterClient from "../pages/clients/register";
 import LoginClient from "../pages/clients/login";
 import SearchPage from "../pages/clients/search";
+import OrderDetailsPage from "../pages/clients/order-details";
   
   const SetupRouters = () => {
     return (
@@ -13,13 +14,17 @@ import SearchPage from "../pages/clients/search";
         <Route path="/" element={<HomePage/>} />
         <Route path="/register" element={<RegisterClient/>} />
         <Route path="/flight/search" element={<SearchPage/>} />
-        <Route path="/flight/details" element={''} />
 
         {/*Protected Routes*/}
-        <Route path="/home" element={<PrivateRoute />}>
+        <Route path="flight" element={<PrivateRoute />}>
+          <Route path="order-details" element={<OrderDetailsPage/>} />
+        </Route>
+
+        <Route path="home" element={<PrivateRoute />}>
           <Route path="payment" element={''} />
           <Route path="profile" element={''} />
         </Route>
+
   
         {/*Private Routes*/}
         <Route path="/login" element={<ProtectedRoute />}>

@@ -6,7 +6,7 @@ import Emoticon from '../../assets/Emoticon.png';
 
 const WhyUs = () => {
     return (
-        <section className='why-us container mx-auto my-16 px-4'>
+        <section className='why-us px-32 mx-auto my-16'>
             <div className="flex items-center gap-2 mb-5">
                 <h2 className="text-[32px] font-bold text-slate-600 font-['Open Sans']">Kenapa Harus Pesan Tiket Pesawat di Sini?</h2>
                 <img src={Emoticon} alt="Emoticon Illustration" />
