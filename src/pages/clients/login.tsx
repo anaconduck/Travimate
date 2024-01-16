@@ -3,16 +3,18 @@ import { Link } from "react-router-dom";
 
 const LoginClient = () => {
     return (
-        <section className="login flex">
+        <section className="lg:flex login bg-sky-100">
             {/* Gambar di sisi kiri */}
-            <div className="w-3/5 bg-blue-500 flex justify-center relative">
-                <h2 className="font-[Open Sans] text-[32px] font-bold text-white absolute top-48">Pulang Kampung Tanpa Hambatan.</h2>
-                <img src="https://i.ibb.co/ftcDBrk/Group.png" className="w-screen" alt="Background" />
+            <div className="hidden lg:block w-3/5 bg-blue-500 flex justify-center relative">
+                <img src="https://i.ibb.co/ftcDBrk/Group.png" className="lg:w-screen lg:h-full" alt="Background" />
+                <div className="flex justify-center">
+                    <h2 className="font-[Open Sans] text-[32px] font-bold text-white absolute top-48 lg:top-48">Pulang Kampung Tanpa Hambatan</h2>
+                </div>
             </div>
 
             {/* Form login di sisi kanan */}
-            <div className="flex justify-center items-center w-2/5 bg-sky-100">
-                <div className="bg-white rounded-[27px] w-[420px] p-8 shadow-lg">
+            <div className="flex justify-center lg:items-center min-h-screen lg:min-h-screen lg:w-2/5 p-8">
+                <div className="max-w-md w-full bg-white p-8 rounded-[27px] shadow-md">
                     <h2 className="font-[Open Sans] text-[32px] font-bold text-[#505050]">Masuk ke Akunmu</h2>
                     <form className="flex flex-col gap-8 my-8">
                         <div className="flex flex-col gap-2">
