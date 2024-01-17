@@ -5,6 +5,7 @@ import HomePage from "../pages/clients/home";
 import RegisterClient from "../pages/clients/register";
 import LoginClient from "../pages/clients/login";
 import SearchPage from "../pages/clients/search";
+import WaitingPayment from "../section/clients/waiting-payment";
   
   const SetupRouters = () => {
     return (
@@ -14,6 +15,9 @@ import SearchPage from "../pages/clients/search";
         <Route path="/register" element={<RegisterClient/>} />
         <Route path="/flight/search" element={<SearchPage/>} />
         <Route path="/flight/details" element={''} />
+
+        {/* ini alfi */}
+        <Route path="/test" element={<WaitingPayment/>} />
 
         {/*Protected Routes*/}
         <Route path="/home" element={<PrivateRoute />}>
