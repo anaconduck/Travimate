@@ -13,12 +13,12 @@ const ItemCardFlightOrdersDetails = () => {
                 <div className="w-[100px] h-[32px]">
                     <img className="w-[100%] h-[100%]" src="https://dummyimage.com/600x400/e6e6e6/cfcfe3" alt="" />
                 </div>
-                <p className="text-[28px] text-gray-800 font-bold">Lion Air</p>
+                <p className="text-[24px] text-gray-800 font-bold">Lion Air</p>
             </div>
         </div>
         <div className="flex flex-row justify-between items-center">
             <div className="flex flex-col">
-                <p className="text-neutral-600 text-[28px] font-bold font-['Open Sans'] leading-10">07:00</p>
+                <p className="text-neutral-600 text-[24px] font-bold font-['Open Sans'] leading-10">07:00</p>
                 <p className="text-neutral-400 text-xl font-semibold font-['Open Sans'] leading-7">CGK</p>
             </div>
             <div>
@@ -37,7 +37,7 @@ const ItemCardFlightOrdersDetails = () => {
                 </p>
             </div>
             <div className="flex flex-col">
-                <p className="text-neutral-600 text-[28px] font-bold font-['Open Sans'] leading-10">08:35</p>
+                <p className="text-neutral-600 text-[24px] font-bold font-['Open Sans'] leading-10">08:35</p>
                 <p className="text-neutral-400 text-xl font-semibold font-['Open Sans'] leading-7">DPS</p>
             </div>
         </div>
