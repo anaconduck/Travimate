@@ -60,7 +60,7 @@ const CardRight = () => {
           <div>Bali (DPS)</div>
         </div>
         <div className="flex justify-center items-center text-blue-600 font-bold my-5 text-lg">
-          Detail
+          <button>Detail</button>
         </div>
       </div>
       <div className="border-t-2 border-slate-200 pt-4">

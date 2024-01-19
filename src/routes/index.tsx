@@ -6,6 +6,7 @@ import RegisterClient from "../pages/clients/register";
 import LoginClient from "../pages/clients/login";
 import SearchPage from "../pages/clients/search";
 import WaitingPayment from "../section/clients/waiting-payment";
+import PaymentAccepted from "../section/clients/payment-accepted";
   
   const SetupRouters = () => {
     return (
@@ -18,6 +19,7 @@ import WaitingPayment from "../section/clients/waiting-payment";
 
         {/* ini alfi */}
         <Route path="/test" element={<WaitingPayment/>} />
+        <Route path="/pay-acc" element={<PaymentAccepted/>} />
 
         {/*Protected Routes*/}
         <Route path="/home" element={<PrivateRoute />}>
