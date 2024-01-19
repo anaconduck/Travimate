@@ -38,7 +38,7 @@ const LayoutClient = ({ children }: ILayoutClient) => {
         <nav
           className={`${
             navbar
-              ? "bg-white transition ease-in-out duration-300"
+              ? "bg-blue-500 transition ease-in-out duration-300"
               : "transition ease-in-out duration-300 bg-blue-300 text-white border-b border-b-slate-700 bg-opacity-40 backdrop-blur-md"
           } active px-2 sm:px-4 py-0.5 fixed w-full z-20 top-0 left-0`}>
           <Navbar/>

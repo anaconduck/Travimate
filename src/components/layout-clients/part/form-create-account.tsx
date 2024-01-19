@@ -3,8 +3,8 @@ import { Link } from "react-router-dom";
 
 const FormCreateAccount = ({ input, nextStep, handleInput }) => {
     return (
-        <div className="flex justify-center lg:items-center min-h-screen lg:min-h-screen lg:w-2/5 p-8">
-            <div className="max-w-md w-full bg-white p-8 rounded-[27px] shadow-md">
+        <div className="flex justify-center lg:items-center min-h-screen lg:min-h-screen lg:w-2/4 px-8 md:px-32">
+            <div className="w-full bg-white p-12 rounded-[27px] shadow-md">
                 <h2 className="font-[Open Sans] text-[32px] font-bold text-[#505050]">Buat Akun</h2>
                 <form className="flex flex-col gap-8 my-8">
                     <div className="flex flex-col gap-2">

@@ -26,7 +26,7 @@ const Navbar = () => {
 
           <NavLink to="/register">
               <button 
-                className="w-[101px] h-[49.50px] px-[8.50px] py-[13.75px] bg-blue-500 rounded-[27.51px] justify-center items-center gap-1 inline-flex">
+                className="w-[101px] h-[49.50px] px-[8.50px] py-[13.75px] border-2 border-white rounded-[27.51px] justify-center items-center gap-1 inline-flex">
                   <div className="text-white text-sm font-bold font-['Open Sans'] leading-snug">Daftar</div>
                 </button>
           </NavLink>

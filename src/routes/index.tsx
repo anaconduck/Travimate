@@ -6,6 +6,8 @@ import RegisterClient from "../pages/clients/register";
 import LoginClient from "../pages/clients/login";
 import SearchPage from "../pages/clients/search";
 import OrderDetailsPage from "../pages/clients/order-details";
+import ProfilePage from "../pages/clients/profile";
+import ForgetPassword from "../pages/clients/forget-password";
   
   const SetupRouters = () => {
     return (
@@ -14,6 +16,8 @@ import OrderDetailsPage from "../pages/clients/order-details";
         <Route path="/" element={<HomePage/>} />
         <Route path="/register" element={<RegisterClient/>} />
         <Route path="/flight/search" element={<SearchPage/>} />
+        <Route path="/profile" element={<ProfilePage/>} />
+        <Route path="/forgot-password" element={<ForgetPassword/>} />
 
         {/*Protected Routes*/}
         <Route path="flight" element={<PrivateRoute />}>

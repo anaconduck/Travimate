@@ -3,8 +3,8 @@ import { Link } from "react-router-dom";
 
 const FormAdditionalInformation = ({ input, handleInput, handleRegister }) => {
     return (
-        <div className="flex justify-center lg:items-center min-h-screen lg:min-h-screen lg:w-2/5 p-8">
-            <div className="max-w-md w-full bg-white p-8 rounded-[27px] shadow-md">
+        <div className="flex justify-center lg:items-center  w-[50%] p-12 md:px-44">
+            <div className="w-full bg-white p-8 rounded-[27px] shadow-md">
                 <h2 className="font-[Open Sans] text-[32px] font-bold text-[#505050]">Informasi Tambahan</h2>
                 <form onSubmit={handleRegister} className="flex flex-col gap-8 mt-8 my-4">
                     <div className="flex flex-col gap-2">
