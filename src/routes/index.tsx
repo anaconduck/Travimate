@@ -7,6 +7,8 @@ import LoginClient from "../pages/clients/login";
 import SearchPage from "../pages/clients/search";
 import WaitingPayment from "../section/clients/waiting-payment";
 import PaymentAccepted from "../section/clients/payment-accepted";
+import CardPayment from "../section/clients/card-payment";
+import PaymentNavbar from "../section/clients/payment-navbar";
   
   const SetupRouters = () => {
     return (
@@ -20,6 +22,8 @@ import PaymentAccepted from "../section/clients/payment-accepted";
         {/* ini alfi */}
         <Route path="/test" element={<WaitingPayment/>} />
         <Route path="/pay-acc" element={<PaymentAccepted/>} />
+        <Route path="/card-pay" element={<CardPayment/>} />
+        <Route path="/pay-navbar" element={<PaymentNavbar/>} />
 
         {/*Protected Routes*/}
         <Route path="/home" element={<PrivateRoute />}>
