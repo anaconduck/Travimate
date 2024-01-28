@@ -3,7 +3,7 @@ import gbr from "../../assets/Group 69.png";
 const WaitingPayment = () => {
   return (
     <div className="bg-blue-100 min-h-screen w-full font-sans">
-      <div className="max-w-7xl mx-auto">
+      <div className="max-w-7xl mx-auto pt-10">
         <div className="grid grid-cols-3 gap-8">
           <div className="w-full bg-white col-span-2 p-8 rounded-xl h-80">
             <CardLeft />

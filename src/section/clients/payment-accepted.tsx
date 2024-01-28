@@ -4,7 +4,7 @@ import gbr from '../../assets/Group 70.png'
 const PaymentAccepted = () => {
   return (
     <div className='bg-blue-100 min-h-screen w-full font-sans'>
-      <div className='max-w-7xl mx-auto'>
+      <div className="max-w-7xl mx-auto pt-10">
         <div className='w-full bg-white h-max rounded-xl grid place-items-center'>
           <div className='grid place-items-center mx-96 my-16'>
             <div>

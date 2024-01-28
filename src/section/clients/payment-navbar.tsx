@@ -6,8 +6,13 @@ import { TbUserFilled } from "react-icons/tb";
 import { TbMinus } from "react-icons/tb";
 import { TbCheck } from "react-icons/tb";
 import { TbPhone } from "react-icons/tb";
+import CardPayment from "./card-payment";
+import WaitingPayment from "./waiting-payment";
+import PaymentAccepted from "./payment-accepted";
 
 const PaymentNavbar = () => {
+  const [step, setStep] = React.useState<number>(1);
+
   return (
     <div>
       <div className="flex justify-between mx-12 my-4 h-16">
@@ -95,24 +100,26 @@ const PaymentNavbar = () => {
           </div>
         </div>
       </div>
-      <div className="flex justify-between mx-12">
-        <PilihMetode />
+      <div className="flex justify-between mx-12 pb-4">
+        <PilihMetode step={step} changeStep={(e: number) => setStep(e)} />
       </div>
+      {step === 1 && <CardPayment />}
+      {step === 2 && <WaitingPayment />}
+      {step === 3 && <PaymentAccepted />}
     </div>
   );
 };
 
 export default PaymentNavbar;
 
-const PilihMetode = () => {
-  const [step, setStep] = React.useState<1 | 2 | 3>(1);
+const PilihMetode = ({step, changeStep}: {step: number, changeStep: (e: number) => void}) => {
   const active = `bg-blue-500 p-2 rounded-full text-white`;
   const inactive = `p-2 rounded-full`;
   return (
     <React.Fragment>
       <div className="flex justify-between items-center">
         <button
-          onClick={() => setStep(1)}
+          onClick={() => changeStep(1)}
           className="flex justify-start items-center gap-2"
         >
           <TbShoppingCart
@@ -123,7 +130,7 @@ const PilihMetode = () => {
         </button>
         <div className="ml-2 border-b-2 border-slate-800 w-10 h-1"></div>
         <button
-          onClick={() => setStep(2)}
+          onClick={() => changeStep(2)}
           className="flex justify-start items-center gap-2 ml-2"
         >
           <TbCreditCard className={step === 2 ? active : inactive} size={30} />
@@ -131,7 +138,7 @@ const PilihMetode = () => {
         </button>
         <div className="ml-2 border-b-2 border-slate-800 w-10 h-1"></div>
         <button
-          onClick={() => setStep(3)}
+          onClick={() => changeStep(3)}
           className="flex justify-start items-center gap-2 ml-2"
         >
           <TbCheck className={step === 3 ? active : inactive} size={30} />
