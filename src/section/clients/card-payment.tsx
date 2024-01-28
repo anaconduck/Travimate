@@ -1,6 +1,10 @@
 import React from "react";
 
-const CardPayment = () => {
+const CardPayment = ({
+  handlePayment,
+}: {
+  handlePayment: (e: any) => void;
+}) => {
   return (
     <div className="bg-blue-100 min-h-screen w-full font-sans">
       <div className="max-w-7xl mx-auto pt-10">
@@ -12,8 +16,13 @@ const CardPayment = () => {
             <div className="w-full bg-white rounded-xl p-8 max-h-screen">
               <CardRight />
             </div>
-            <div className="mt-8">
-              <button className="p-2 bg-amber-500 text-white text-lg font-bold rounded-3xl w-full">Bayar</button>
+            <div className="mt-6">
+              <button
+                onClick={() => handlePayment(true)}
+                className="p-2 bg-amber-500 hover:bg-orange-400 text-white text-lg font-bold rounded-3xl w-full"
+              >
+                Bayar
+              </button>
             </div>
           </div>
         </div>
@@ -36,30 +45,24 @@ const CardLeft = () => {
           <div className="flex justify-start items-center gap-2">
             <input
               id="va"
-              className="p-2"
+              className="p-2 accent-blue-500"
               type="radio"
               name="status"
               checked={checked === "bca"}
               onChange={() => setChecked("bca")}
             />
-            <label htmlFor="va">
-              BCA Virtual Account
-            </label>
+            <label htmlFor="va">BCA Virtual Account</label>
           </div>
           <div className="flex justify-start items-center gap-2">
             <input
               id="card-payment"
-              className="peer/card-payment"
+              className="accent-blue-500"
               type="radio"
               name="status"
               checked={checked === "credit"}
               onChange={() => setChecked("credit")}
             />
-            <label
-              htmlFor="card-payment"
-            >
-              Kartu kredit/debit
-            </label>
+            <label htmlFor="card-payment">Kartu kredit/debit</label>
           </div>
         </form>
       </div>
@@ -77,6 +80,7 @@ const CardLeft = () => {
               id="card-number"
               name="card-number"
               className="mt-1 p-2 w-full border rounded-3xl bg-gray-200"
+              placeholder="Nomor Kartu"
             />
           </div>
 
@@ -93,6 +97,7 @@ const CardLeft = () => {
                 id="val-period"
                 name="val-period"
                 className="mt-1 p-2 border w-full rounded-3xl bg-gray-200"
+                placeholder="Masa berlaku"
               />
             </div>
             <div className="w-full">
@@ -107,6 +112,7 @@ const CardLeft = () => {
                 id="val-period"
                 name="val-period"
                 className="mt-1 p-2 border w-full rounded-3xl bg-gray-200"
+                placeholder="CVC / CVV"
               />
             </div>
           </div>
@@ -123,6 +129,7 @@ const CardLeft = () => {
               id="card-owner-name"
               name="card-owner-name"
               className="mt-1 p-2 w-full border rounded-3xl bg-gray-200"
+              placeholder="Nama pemilik kartu"
             />
           </div>
 
@@ -138,6 +145,7 @@ const CardLeft = () => {
               id="payment-option"
               name="payment-option"
               className="mt-1 p-2 w-full border rounded-3xl bg-gray-200"
+              placeholder="Penuh/Cicilan"
             />
           </div>
 
@@ -194,7 +202,8 @@ const CardRight = () => {
               type="text"
               id="promo-code"
               name="promo-code"
-              className="mt-1 p-2 w-full border rounded-3xl bg-gray-200"
+              className="mt-1 p-2 w-full border rounded-3xl bg-gray-200 text-center"
+              placeholder="KODE PROMO"
             />
           </form>
         </div>
@@ -207,8 +216,8 @@ const CardRight = () => {
           </button>
         </div>
       </div>
-      <div className="border-t-2 border-slate-200 pt-4">
-        <div className="flex justify-between items-center">
+      <div className="border-t-2 border-slate-200 mt-6">
+        <div className="flex justify-between items-center mt-2">
           <div className="text-sm">Total Pembayaran</div>
           <div className="flex justify-end items-center">
             <div className="font-bold text-2xl">Rp1.368.000</div>

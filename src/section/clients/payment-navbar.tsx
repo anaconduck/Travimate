@@ -3,7 +3,6 @@ import { TbShoppingCart } from "react-icons/tb";
 import { TbBell } from "react-icons/tb";
 import { TbCreditCard } from "react-icons/tb";
 import { TbUserFilled } from "react-icons/tb";
-import { TbMinus } from "react-icons/tb";
 import { TbCheck } from "react-icons/tb";
 import { TbPhone } from "react-icons/tb";
 import CardPayment from "./card-payment";
@@ -83,18 +82,18 @@ const PaymentNavbar = () => {
           </div>
         </div>
         <div className="flex items-center gap-6 font-semibold text-lg">
-          <div className="flex items-center text-white bg-amber-500 p-2 rounded-3xl">
+          <div className="flex items-center text-white bg-amber-500 hover:bg-orange-400 p-2 rounded-3xl">
             <div>
               <TbPhone />
             </div>
             <div className="ml-2">Customer Service</div>
           </div>
-          <div className="bg-blue-500 text-white rounded-full p-1">
+          <div className="bg-blue-500 hover:bg-blue-700 text-white rounded-full p-1">
             <TbBell className="w-12 h-12" />
           </div>
           <div className="flex items-center">
             <div>Halo, Norman</div>
-            <div className="bg-blue-300 text-blue-600 rounded-full p-1 ml-2 flex items-end">
+            <div className="bg-blue-300 hover:bg-blue-400 text-blue-600 hover:text-blue-700 rounded-full p-1 ml-2 flex items-end">
               <TbUserFilled className="w-12 h-12" />
             </div>
           </div>
@@ -103,7 +102,7 @@ const PaymentNavbar = () => {
       <div className="flex justify-between mx-12 pb-4">
         <PilihMetode step={step} changeStep={(e: number) => setStep(e)} />
       </div>
-      {step === 1 && <CardPayment />}
+      {step === 1 && <CardPayment handlePayment={(e: any) => setStep(2)} />}
       {step === 2 && <WaitingPayment />}
       {step === 3 && <PaymentAccepted />}
     </div>
@@ -145,7 +144,7 @@ const PilihMetode = ({step, changeStep}: {step: number, changeStep: (e: number) 
           <div className="ml-1">Selesai</div>
         </button>
       </div>
-      <div className="flex justify-between gap-6">
+      <div className="flex justify-between gap-2">
         <div>Lakukan pembayaran dalam</div>
         <div className="text-red-500">02:59:59</div>
       </div>

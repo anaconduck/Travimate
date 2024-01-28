@@ -9,6 +9,7 @@ import WaitingPayment from "../section/clients/waiting-payment";
 import PaymentAccepted from "../section/clients/payment-accepted";
 import CardPayment from "../section/clients/card-payment";
 import PaymentNavbar from "../section/clients/payment-navbar";
+import Payment from "../pages/clients/payment";
   
   const SetupRouters = () => {
     return (
@@ -20,10 +21,7 @@ import PaymentNavbar from "../section/clients/payment-navbar";
         <Route path="/flight/details" element={''} />
 
         {/* ini alfi */}
-        <Route path="/test" element={<WaitingPayment/>} />
-        <Route path="/pay-acc" element={<PaymentAccepted/>} />
-        <Route path="/card-pay" element={<CardPayment/>} />
-        <Route path="/pay-navbar" element={<PaymentNavbar/>} />
+        <Route path="/payment" element={<Payment/>} />
 
         {/*Protected Routes*/}
         <Route path="/home" element={<PrivateRoute />}>
