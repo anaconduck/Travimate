@@ -1,10 +1,17 @@
 import React from 'react'
+import { TbShoppingCart } from "react-icons/tb";
+import { TbBell } from "react-icons/tb";
+import { TbCreditCard } from "react-icons/tb";
+import { TbUserFilled } from "react-icons/tb";
+import { TbMinus } from "react-icons/tb";
+import { TbCheck } from "react-icons/tb";
+import { TbPhone } from "react-icons/tb";
 
 const PaymentNavbar = () => {
   return (
-    <div className='bg-blue-400'>
-        <div className='flex justify-between bg-yellow-200 mx-12'>
-            <div className='bg-amber-500 flex justify-between gap-2'>
+    <div>
+        <div className='flex justify-between mx-12 my-4 h-16'>
+            <div className='flex justify-between gap-2 items-center'>
                 <div>
                     <svg xmlns="http://www.w3.org/2000/svg" width="18" height="25" viewBox="0 0 18 25" fill="none">
                     <path d="M11.5398 23.5104C11.5592 23.6507 11.6289 23.7793 11.7359 23.8722C11.8429 23.965 11.98 24.0159 12.1217 24.0153H16.5553C16.7706 24.0145 16.9769 23.9286 17.1292 23.7763C17.2814 23.6241 17.3673 23.4178 17.3681 23.2025V7.44776C17.3682 7.2319 17.2826 7.02484 17.1303 6.87191C16.9779 6.71899 16.7712 6.63267 16.5553 6.63186H12.1217C11.9823 6.63072 11.847 6.67942 11.7404 6.76918C11.6337 6.85893 11.5625 6.98384 11.5398 7.1214C11.4226 7.79331 11.0721 8.40232 10.55 8.84121C10.0279 9.28011 9.36772 9.52074 8.68566 9.52074C8.0036 9.52074 7.34342 9.28011 6.82133 8.84121C6.29924 8.40232 5.94874 7.79331 5.83152 7.1214C5.80762 6.98438 5.73616 6.86018 5.62973 6.77064C5.5233 6.6811 5.3887 6.63196 5.24961 6.63186H0.812922C0.597064 6.63267 0.390324 6.71899 0.237977 6.87191C0.0856302 7.02484 9.15057e-05 7.2319 9.30426e-05 7.44776V23.1871C-0.00153684 23.295 0.0182616 23.4022 0.0583418 23.5024C0.0984219 23.6026 0.157987 23.6939 0.233587 23.7709C0.309188 23.8479 0.39932 23.9092 0.498765 23.9512C0.59821 23.9931 0.70499 24.0149 0.812922 24.0153H5.24961C5.3887 24.0152 5.5233 23.9661 5.62973 23.8765C5.73616 23.787 5.80762 23.6628 5.83152 23.5258C5.94874 22.8539 6.29924 22.2448 6.82133 21.8059C7.34342 21.3671 8.0036 21.1264 8.68566 21.1264C9.36772 21.1264 10.0279 21.3671 10.55 21.8059C11.0721 22.2448 11.4226 22.8539 11.5398 23.5258V23.5104ZM5.41587 18.9936C5.33421 18.9936 5.2559 18.9612 5.19816 18.9034C5.14042 18.8457 5.10798 18.7674 5.10798 18.6857V16.9739C5.108 16.9199 5.1272 16.8676 5.16216 16.8264C5.19713 16.7853 5.24558 16.7579 5.29887 16.7491C5.55693 16.7036 5.7907 16.5686 5.95913 16.3679C6.12756 16.1672 6.21989 15.9135 6.21989 15.6515C6.21989 15.3894 6.12756 15.1358 5.95913 14.9351C5.7907 14.7343 5.55693 14.5994 5.29887 14.5539C5.24558 14.5451 5.19713 14.5177 5.16216 14.4765C5.1272 14.4354 5.108 14.3831 5.10798 14.3291V12.6234C5.10798 12.5417 5.14042 12.4634 5.19816 12.4057C5.2559 12.3479 5.33421 12.3155 5.41587 12.3155H11.4721C11.5537 12.3155 11.632 12.3479 11.6898 12.4057C11.7475 12.4634 11.78 12.5417 11.78 12.6234V14.3291C11.7801 14.3827 11.7613 14.4346 11.7269 14.4757C11.6926 14.5168 11.6449 14.5444 11.5921 14.5539C11.3341 14.5994 11.1003 14.7343 10.9319 14.9351C10.7635 15.1358 10.6711 15.3894 10.6711 15.6515C10.6711 15.9135 10.7635 16.1672 10.9319 16.3679C11.1003 16.5686 11.3341 16.7036 11.5921 16.7491C11.6449 16.7585 11.6926 16.7862 11.7269 16.8273C11.7613 16.8684 11.7801 16.9203 11.78 16.9739V18.6796C11.78 18.7612 11.7475 18.8395 11.6898 18.8973C11.632 18.955 11.5537 18.9875 11.4721 18.9875L5.41587 18.9936Z" fill="#3E7BFA"/>
@@ -25,22 +32,116 @@ const PaymentNavbar = () => {
                     </svg>
                 </div>
             </div>
-            <div className='bg-green-600 flex justify-between gap-6 items-end'>
-                <div className='bg-red-200'>customer service</div>
-                <div className='bg-red-700'>notif</div>
-                <div className='bg-red-400'>Halo, Norman</div>
-                <div className='bg-red-200'>ava</div>
+            <div className='flex items-center gap-6 font-semibold text-lg'>
+                <div className='flex items-center text-white bg-amber-500 p-2 rounded-3xl'>
+                    <div>
+                        <TbPhone />
+                    </div>
+                    <div className='ml-2'>Customer Service</div>
+                </div>
+                <div className='bg-blue-500 text-white rounded-full p-1'>
+                    <TbBell className='w-12 h-12'/>
+                </div>
+                <div className='flex items-center'>
+                    <div>Halo, Norman</div>
+                    <div className='bg-blue-300 text-blue-600 rounded-full p-1 ml-2 flex items-end'>
+                        <TbUserFilled className='w-12 h-12'/>
+                    </div>
+                </div>
             </div>
         </div>
+        <div className='flex justify-between bg-violet-400 mx-12'>
+            <PilihMetode/>
+        </div>
         <div className='flex justify-between bg-yellow-400 mx-12'>
-            <div>langkah</div>
-            <div className='flex justify-between gap-6'>
-                <div className='bg-green-400'>Lakukan pembayaran dalam</div>
-                <div className='text-red-500 bg-slate-400'>02:59:59</div>
-            </div>
+            <Bayar/>
+        </div>
+        <div className='flex justify-between bg-green-400 mx-12'>
+            <Selesai/>
         </div>
     </div>
   )
 }
 
 export default PaymentNavbar
+
+const PilihMetode = () => {
+    return(
+        <React.Fragment>
+            <div className='flex justify-between items-center'>
+                    <div className='bg-blue-500 rounded-full p-1'>
+                        <TbShoppingCart />
+                    </div>
+                    <div className='ml-1'>Pilih metode</div>
+                    <div className='ml-2 border-b-2 border-slate-800 w-10 h-1'></div>
+                    <div className='ml-2'>
+                        <TbCreditCard />
+                    </div>
+                    <div className='ml-1'>Bayar</div>
+                    <div className='ml-2 border-b-2 border-slate-800 w-10 h-1'></div>
+                    <div className='ml-2'>
+                        <TbCheck />
+                    </div>
+                    <div className='ml-1'>Selesai</div>
+            </div>
+            <div className='flex justify-between gap-6'>
+                <div>Lakukan pembayaran dalam</div>
+                <div className='text-red-500'>02:59:59</div>
+            </div>
+        </React.Fragment>
+    )
+}
+
+const Bayar = () => {
+    return(
+        <React.Fragment>
+            <div className='flex justify-between items-center'>
+                    <div className='bg-blue-500 rounded-full p-1'>
+                        <TbShoppingCart />
+                    </div>
+                    <div className='ml-1'>Pilih metode</div>
+                    <div className='ml-2 border-b-2 border-slate-800 w-10 h-1'></div>
+                    <div className='ml-2 bg-blue-500 rounded-full p-1'>
+                        <TbCreditCard />
+                    </div>
+                    <div className='ml-1'>Bayar</div>
+                    <div className='ml-2 border-b-2 border-slate-800 w-10 h-1'></div>
+                    <div className='ml-2'>
+                        <TbCheck />
+                    </div>
+                    <div className='ml-1'>Selesai</div>
+            </div>
+            <div className='flex justify-between gap-6'>
+                <div>Lakukan pembayaran dalam</div>
+                <div className='text-red-500'>02:59:59</div>
+            </div>
+        </React.Fragment>
+    )
+}
+
+const Selesai = () => {
+    return(
+        <React.Fragment>
+            <div className='flex justify-between items-center'>
+                    <div className='bg-blue-500 rounded-full p-1'>
+                        <TbShoppingCart />
+                    </div>
+                    <div className='ml-1'>Pilih metode</div>
+                    <div className='ml-2 border-b-2 border-slate-800 w-10 h-1'></div>
+                    <div className='ml-2 bg-blue-500 rounded-full p-1'>
+                        <TbCreditCard />
+                    </div>
+                    <div className='ml-1'>Bayar</div>
+                    <div className='ml-2 border-b-2 border-slate-800 w-10 h-1'></div>
+                    <div className='ml-2 bg-blue-500 rounded-full p-1'>
+                        <TbCheck />
+                    </div>
+                    <div className='ml-1'>Selesai</div>
+            </div>
+            <div className='flex justify-between gap-6'>
+                <div>Lakukan pembayaran dalam</div>
+                <div className='text-red-500'>02:59:59</div>
+            </div>
+        </React.Fragment>
+    )
+}
