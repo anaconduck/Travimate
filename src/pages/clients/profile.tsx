@@ -48,8 +48,19 @@ const ProfilePage = () => {
   )
 
   const renderRiwayatState = (
-    <div className='bg-white p-8 w-full rounded-[27.51px]'>
-      Riwayat
+    <div className='flex flex-col gap-4'>
+      <div className='bg-white p-8 w-full rounded-[27.51px]'>
+        <h2 className='font-bold text-lg text-gray-600'>Riwayat Pembayaran</h2>
+        <div className='flex flex-row gap-3'>
+          <div>
+            <button>Menunggu Pembayaran</button>
+          </div>
+        </div>
+      </div>
+
+      <div className='bg-white p-8 w-full rounded-[27.51px]'>
+      
+      </div>
     </div>
   )
 
@@ -67,7 +78,7 @@ const ProfilePage = () => {
 
   return (
     <LayoutClient>
-      <div className='flex flex-row w-[100%] min-h-screen bg-[#E7F2FF]'>
+      <div className='flex flex-row w-[100%] py-12 px-28 min-h-screen bg-[#E7F2FF]'>
         <div className='w-[30%] p-8'>
           {renderProfileSection}
         </div>

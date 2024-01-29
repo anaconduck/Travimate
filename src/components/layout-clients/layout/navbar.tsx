@@ -5,7 +5,9 @@ const Navbar = () => {
     <div className="navbar flex flex-row py-4 justify-between items-center min-h-max px-32">
         <div className="flex justify-around md:justify-between">
           <NavLink to="/">
-            <img src="/src/assets/logo.png" alt="logo"/>
+            <div className="w-44">
+              <img className="w-full h-full" src="/src/assets/logo.png" alt="logo"/>
+            </div>
           </NavLink>
         </div>
 
