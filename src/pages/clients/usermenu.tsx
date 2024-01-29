@@ -1,11 +1,6 @@
-import React, { useEffect, useState } from 'react'
-import { GoArrowSwitch } from "react-icons/go";
+import { useEffect, useState } from 'react'
 import LayoutClient from '../../components/layout-clients/layout'
-import { Bell, ClockCounterClockwise, FileText, ListChecks, SignOut, User, UserCircle } from '@phosphor-icons/react'
-import { NavLink } from 'react-router-dom'
 import usePath from '../../hooks/use-path'
-import EmptyState from '../../components/layout-clients/empty-state/empty-state'
-import { HistoryIllustration } from '../../assets/ilustrations'
 import HistoryStage from './usermenu-stage/history-stage';
 import MenuStage from './usermenu-stage/menu-stage';
 import NotificationStage from './usermenu-stage/notification-stage';
