@@ -5,17 +5,15 @@ import HomePage from "../pages/clients/home";
 import RegisterClient from "../pages/clients/register";
 import LoginClient from "../pages/clients/login";
 import SearchPage from "../pages/clients/search";
-<<<<<<< HEAD
 import OrderDetailsPage from "../pages/clients/order-details";
-import ProfilePage from "../pages/clients/profile";
+import ProfilePage from "../pages/clients/usermenu";
 import ForgetPassword from "../pages/clients/forget-password";
-=======
 import WaitingPayment from "../section/clients/waiting-payment";
 import PaymentAccepted from "../section/clients/payment-accepted";
 import CardPayment from "../section/clients/card-payment";
 import PaymentNavbar from "../section/clients/payment-navbar";
 import Payment from "../pages/clients/payment";
->>>>>>> defe3bdcb6b5ec3c39947bf73744d3bf69964015
+import UserMenuPage from "../pages/clients/usermenu";
   
   const SetupRouters = () => {
     return (
@@ -24,7 +22,12 @@ import Payment from "../pages/clients/payment";
         <Route path="/" element={<HomePage/>} />
         <Route path="/register" element={<RegisterClient/>} />
         <Route path="/flight/search" element={<SearchPage/>} />
-        <Route path="/profile" element={<ProfilePage/>} />
+        <Route path="/profile" element={<UserMenuPage/>} />
+        <Route path="/history" element={<UserMenuPage/>} />
+        <Route path="/checkin" element={<UserMenuPage/>} />
+        <Route path="/notification" element={<UserMenuPage/>} />
+        <Route path="/logout" element={<UserMenuPage/>} />
+
         <Route path="/forgot-password" element={<ForgetPassword/>} />
 
         {/* ini alfi */}

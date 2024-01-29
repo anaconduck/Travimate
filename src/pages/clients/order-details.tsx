@@ -194,12 +194,12 @@ const OrderDetailsPage = () => {
 
     return (
         <LayoutClient>
-            <div className='px-32 flex flex-col md:flex-row justify-between gap-2 w-full bg-indigo-50 pb-32'>
+            <div className='px-32 flex flex-col md:flex-row justify-between gap-2 w-full bg-indigo-50 mt-28 pb-32'>
                 <Helmet>
                     <title>Flight | Order Detail</title>
                     <meta name="description" content="Order details" />
                 </Helmet>
-                <div className='flex flex-col gap-1 mt-10 w-[68%]'>
+                <div className='flex flex-col gap-1 mt-12 w-[68%]'>
                     {renderDetailPemesan}
                     <div className='mt-4'>
                         <h5 className="text-neutral-600 text-2xl font-bold font-['Open Sans'] leading-10">Detail Penumpang</h5>

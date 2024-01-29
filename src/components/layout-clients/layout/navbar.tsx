@@ -1,3 +1,4 @@
+import { TbBell, TbPhone, TbUserFilled } from "react-icons/tb"
 import { Link, NavLink } from "react-router-dom"
 
 const Navbar = () => {
@@ -11,12 +12,14 @@ const Navbar = () => {
           </NavLink>
         </div>
 
-        <div className="flex flex-row gap-4">
-          <NavLink to="/register">
-              <button 
-                className="w-[204px] h-[51.50px] px-[28.50px] py-[13.75px] bg-amber-500 rounded-[27.51px] justify-center items-center gap-1 inline-flex">
+        <div className="flex flex-row gap-4 items-center">
+          <NavLink to="/">
+              <button className="w-[204px] transition-all hover:bg-amber-400 h-[51.50px] px-[28.50px] py-[13.75px] bg-amber-500 rounded-[27.51px] justify-center items-center gap-1 inline-flex">
+                  <div className="text-xl mr-2 text-white">
+                    <TbPhone />
+                  </div>
                   <div className="text-white text-sm font-bold font-['Open Sans'] leading-snug">Customer Service</div>
-                </button>
+              </button>
           </NavLink>
           
           <NavLink to="/login">
@@ -32,6 +35,24 @@ const Navbar = () => {
                   <div className="text-white text-sm font-bold font-['Open Sans'] leading-snug">Daftar</div>
                 </button>
           </NavLink>
+          
+          
+          {
+            false && (
+              <>
+                <NavLink to="/notification" className="bg-blue-500 hover:bg-blue-700 text-white rounded-full p-3 transition-all cursor-pointer">
+                  <TbBell className="w-8 h-8" />
+                </NavLink>
+
+                <NavLink to="/profile" className="flex items-center">
+                  <div className="text-xl text-white font-semibold">Halo, Norman</div>
+                  <div className="bg-blue-100 hover:bg-blue-400 text-blue-600 hover:text-blue-700 rounded-full p-3 ml-2 flex items-end">
+                    <TbUserFilled className="w-8 h-8" />
+                  </div>
+                </NavLink>
+              </>
+            )
+          }
         </div>
     </div>
   )
