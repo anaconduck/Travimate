@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Outlet, useLocation } from "react-router-dom";
 import Navbar from "./navbar";
+import Footer from "./footer";
 
 interface ILayoutClient {
   children: React.ReactNode;
@@ -49,6 +50,9 @@ const LayoutClient = ({ children }: ILayoutClient) => {
         </div>
         {/* Atau Anda dapat menggunakan Outlet untuk menangani rute bersarang jika diperlukan */}
         <Outlet />
+        <div className="w-full px-32 bg-blue-500">
+          <Footer/>
+        </div>
     </div>
   );
 };

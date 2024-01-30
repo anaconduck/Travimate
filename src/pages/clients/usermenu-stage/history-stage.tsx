@@ -9,6 +9,22 @@ interface IHistoryStage {
 }
 
 const HistoryStage = ({setRiwayat, riwayat}: IHistoryStage) => {
+
+  const renderDetails = (
+    <>
+      Disini
+    </>
+  )
+
+
+  if(true){
+    return (
+      <>
+        {renderDetails}
+      </>
+    )
+  }
+
   return (
     <div className='flex flex-col gap-4'>
       <div className='bg-white p-8 w-full rounded-[27.51px]'>
