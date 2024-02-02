@@ -74,7 +74,7 @@ const AccountStage = () => {
             <div className='actions-button'>
                 <button className='w-full group mt-10'>
                     <div className='rounded-full py-3 text-lg font-semibold justify-center bg-blue-500 text-white flex flex-row items-center'>
-                        <TbEdit size={24} weight="fill" color='white' />
+                        <TbEdit size={24} color='white' />
                         <p>Edit Akun</p>
                     </div>
                 </button>

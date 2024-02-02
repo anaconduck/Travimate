@@ -9,8 +9,8 @@ const HomePage = () => {
     <LayoutClient>
         <Hero />
         <WebSlider/>
-        <WhyUs />
         <DownloadApp />
+        <WhyUs />
     </LayoutClient>
   )
 }

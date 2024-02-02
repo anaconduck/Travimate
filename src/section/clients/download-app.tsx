@@ -4,16 +4,15 @@ import Cloud from "../../assets/Cloud.png";
 
 const DownloadApp = () => {
     return (
-        <section className="download-app bg-blue-700 my-16 relative h-[608px]">
-            <img src={Cloud} className="absolute bottom-0" alt="Image Cloud" />
-            <div className="container mx-auto flex">
-                <div className="w-1/2 h-[608px] flex flex-col justify-center">
-                    <div className="w-[496px] mt-20 mx-4">
-                        <div className="flex justify-center items-center p-2 bg-orange-500 rounded-2xl mb-4">
-                            <p className="text-white font-bold text-[32px] font-['Open Sans']">Kamu sudah siap berangkat?</p>
+        <section className="bg-blue-700 mt-16 relative w-full h-[46rem] xl:h-[38rem]">
+            <div className="w-full px-8 xl:px-32 z-[300]">
+                <div className="w-full md:w-1/2 flex flex-col justify-center">
+                    <div className="w-full mt-20 xl:mt-52">
+                            <p className="text-white font-bold text-[1.5rem] md:text-[2rem] font-['Open Sans']">Kamu sudah siap berangkat?</p>
+                        <div className="py-1 mt-2 mb-4 bg-orange-500 w-[30%] rounded-full">
                         </div>
-                        <p className="text-white font-bold text-[32px] leading-10 font-['Open Sans']">Download aplikasi travimate di playstore sekarang!</p>
-                        <Link to="/download" className="flex justify-center items-center font-bold font-['Open Sans'] text-xl text-blue-500 bg-white p-3.5 rounded-full w-[288px] mt-8">
+                        <p className="text-white font-bold text-2xl md:text-[2rem] leading-10 font-['Open Sans']">Download aplikasi <span className="">travimate</span> di playstore sekarang!</p>
+                        <Link to="/download" className="flex justify-center items-center font-bold font-['Open Sans'] text-md md:text-xl text-blue-500 bg-white p-3.5 rounded-full w-[60%] md:w-[20%] mt-8">
                             Download
                         </Link>
                     </div>
@@ -22,6 +21,7 @@ const DownloadApp = () => {
                     <img src={Mockup} className="absolute end-0 bottom-0" alt="Mockup Travimate" />
                 </div>
             </div>
+            <img src={Cloud} className="absolute bottom-0" alt="Image Cloud" />
         </section>
     );
 };

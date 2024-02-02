@@ -50,7 +50,7 @@ const LayoutClient = ({ children }: ILayoutClient) => {
         </div>
         {/* Atau Anda dapat menggunakan Outlet untuk menangani rute bersarang jika diperlukan */}
         <Outlet />
-        <div className="w-full px-32 bg-blue-500">
+        <div className="w-full bg-blue-500">
           <Footer/>
         </div>
     </div>
