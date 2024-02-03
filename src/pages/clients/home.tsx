@@ -7,16 +7,14 @@ import WebSlider from "../../section/clients/web-slider"
 const HomePage = () => {
 
   let slides = [
-    "https://i.pinimg.com/originals/51/82/ac/5182ac536727d576c78a9320ac62de30.jpg",
-    "https://wallpapercave.com/wp/wp3386769.jpg",
-    "https://wallpaperaccess.com/full/809523.jpg",
-    "https://getwallpapers.com/wallpaper/full/5/c/0/606489.jpg",
+    "https://wallpapercave.com/uwp/uwp4257810.png",
+    "https://wallpapercave.com/uwp/uwp4257807.png",
   ];
 
   return (
     <LayoutClient>
         <Hero />
-        <div className="w-[80%] m-auto pt-11">
+        <div className="w-[79%] m-auto pt-12">
           <WebSlider slides={slides} />
         </div>
         <WhyUs />
