@@ -16,7 +16,7 @@ const Hero = () => {
                     </span>
                 </h1>
             </div>
-            
+
             <img src="/src/assets/plane.png" className="" alt="" />
         </div>   
     )

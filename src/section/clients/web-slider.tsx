@@ -43,12 +43,12 @@ const WebSlider:React.FC<CarouselProps> = ({ slides }) => {
             style={{ transform: `translateX(-${current * 100}%)` }}
           >
             {slides.map((s) => (
-              <img key={s} className="rounded-[40px]" src={s} />
+              <img key={s} className="rounded-[40px]  w-full" src={s} />
             ))}
           </div>
 
           {/* Buttons */}
-          <div className="absolute top-0 h-full w-full justify-between items-center flex text-amber-400 px-5 text-7xl">
+          <div className="absolute top-0 h-full w-full justify-between items-center flex text-amber-400 px-1 text-7xl">
               <button onClick={previousSlide}>
               <IoIosArrowDropleftCircle />
               </button>
