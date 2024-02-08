@@ -6,7 +6,7 @@ const DownloadApp = () => {
     return (
         <section className="bg-blue-700 mt-16 relative w-full h-[46rem] xl:h-[38rem]">
             <div className="w-full px-8 xl:px-32 z-[300]">
-                <div className="w-full md:w-1/2 flex flex-col justify-center">
+                <div data-aos="fade-left" data-aos-duration="1000" className="w-full md:w-1/2 flex flex-col justify-center">
                     <div className="w-full mt-20 xl:mt-52">
                             <p className="text-white font-bold text-[1.5rem] md:text-[2rem] font-['Open Sans']">Kamu sudah siap berangkat?</p>
                         <div className="py-1 mt-2 mb-4 bg-orange-500 w-[30%] rounded-full">

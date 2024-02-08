@@ -1,27 +1,11 @@
 import React from "react";
-import gbr from "../../assets/Group 69.png";
+import gbr from "../../../assets/Group 69.png";
+
+
 const WaitingPayment = () => {
-  return (
-    <div className="bg-blue-100 min-h-screen w-full font-sans">
-      <div className="max-w-7xl mx-auto pt-10">
-        <div className="grid grid-cols-3 gap-8">
-          <div className="w-full bg-white col-span-2 p-8 rounded-xl h-80">
-            <CardLeft />
-          </div>
-          <div className="w-full bg-white rounded-xl p-8">
-            <CardRight />
-          </div>
-        </div>
-      </div>
-    </div>
-  );
-};
 
-export default WaitingPayment;
-
-const CardLeft = () => {
-  return (
-    <React.Fragment>
+  const renderCardLeft = (
+    <>
       <div className="font-bold text-xl text-slate-700">Menunggu Pembayaran</div>
       <div className="mt-4 text-lg text-slate-600">
         Halaman ini akan otomatis beralih ke halaman selanjutnya setelah
@@ -30,12 +14,10 @@ const CardLeft = () => {
       <div className="mt-4">
         <img src={gbr} />
       </div>
-    </React.Fragment>
-  );
-};
+    </>
+  ) 
 
-const CardRight = () => {
-  return (
+  const renderCardRight = (
     <div className="flex flex-col justify-between h-full">
       <div className="">
         <div className="text-lg text-slate-600">Order ID : 1</div>
@@ -86,5 +68,23 @@ const CardRight = () => {
         </div>
       </div>
     </div>
+  )
+
+  return (
+    <div className="bg-blue-100 min-h-screen w-full font-sans">
+      <div className="max-w-7xl mx-auto pt-10">
+        <div className="grid grid-cols-3 gap-8">
+          <div className="w-full bg-white col-span-2 p-8 rounded-xl h-80">
+            {renderCardLeft}
+          </div>
+          <div className="w-full bg-white rounded-xl p-8">
+            {renderCardRight}
+          </div>
+        </div>
+      </div>
+    </div>
   );
 };
+
+export default WaitingPayment;
+

@@ -1,43 +1,123 @@
-import React from "react";
+import * as Yup from 'yup';
+import { yupResolver } from '@hookform/resolvers/yup';
+import { Controller, useForm } from 'react-hook-form';
+import { FormProvider as Form, UseFormReturn } from 'react-hook-form';
+
+import { TextInput } from "flowbite-react";
+import React, { useMemo, useState } from "react";
 import { Link } from "react-router-dom";
+import travimate from '../../api/travimate';
+import { SUCCESS_STATUS_API_RESPONSE, endpoints } from '../../utils/endpoint';
+import { useDispatch } from 'react-redux';
+import { setDataClient } from '../../store/clients/client.slice';
 
 const LoginClient = () => {
+
+    const dispatch = useDispatch()
+    const [loading, setLoading] = useState(false)
+    const LoginSchema = Yup.object().shape({
+        name: Yup.string().required('Title is required'),
+        password: Yup.string().required('Password is required'),
+    });
+
+    const defaultValues = useMemo(
+        () => ({
+            name: '',
+            password: ''
+        }),
+    []
+    );
+
+    const methods = useForm({
+        resolver: yupResolver(LoginSchema),
+        defaultValues,
+    });
+
+    
+    const {
+        reset,
+        watch,
+        control,
+        setValue,
+        handleSubmit,
+        formState: { isSubmitting, isValid },
+    } = methods;
+    
+    const values = watch();
+
+    // console.log(values.name, values.password)
+
+    const onSubmit = handleSubmit(async (data) => {
+        setLoading(true)
+        const bodyForm = {
+            email: data.name,
+            password: data.password
+        }
+
+        try {
+            await travimate.post(`${endpoints.auth.login}`, bodyForm
+            // , {
+            //     headers: {
+            //         'Client-Key': ClientKey,
+            //         Authorization: `Bearer ${accessToken}`
+            //     }
+            // }
+            ).then((response) => {
+                const statusResponse = response
+                if (statusResponse.status === SUCCESS_STATUS_API_RESPONSE) {
+                    sessionStorage.setItem('at', statusResponse?.data?.accessToken)
+                    dispatch(setDataClient({
+                        profileClient: statusResponse?.data?.user 
+                    }))
+                    window.location.href = "/"
+                    setLoading(false) 
+                }
+            }).catch(() => {
+                setLoading(false)
+            })
+        } catch (error) {
+            setLoading(false)
+        }    
+    })
+
     return (
         <section className="login flex h-[100vh] w-full justify-between">
             {/* Gambar di sisi kiri */}
-            <div className="hidden md:block md:w-4/5 bg-blue-500 justify-center ">
-                <h2 className="font-[Open Sans] text-[32px] font-bold text-white text-center absolute top-48 left-32">Pulang Kampung Tanpa Hambatan.</h2>
-                <div className="w-[100%] h-[100vh]">
+            <div className="hidden lg:block lg:w-4/5 relative bg-blue-500 justify-center md:flex md:flex-col">
+                <h2 className="font-[Open Sans] text-[32px] font-bold text-white my-auto text-center mt-44">Pulang Kampung Tanpa Hambatan.</h2>
+                <div className="w-[100%] h-[100vh] absolute bottom-0">
                     <img src="https://i.ibb.co/ftcDBrk/Group.png" className="w-[100%] h-[100%]" alt="Background" />
                 </div>
             </div>
 
             {/* Form login di sisi kanan */}
-            <div className="flex justify-center items-center w-full bg-sky-100">
+            <div className="flex justify-center items-center w-full bg-sky-100 px-8">
                 <div className="bg-white rounded-[27px] p-12 shadow-lg">
-                    <h2 className="font-[Open Sans] text-[32px] font-bold text-[#505050]">Masuk ke Akunmu</h2>
-                    <form className="flex flex-col gap-8 my-8">
-                        <div className="flex flex-col gap-2">
-                            <label className="font-[Open Sans] text-xl font-semibold text-[#505050]">Email/No. Handphone</label>
-                            <input type="text" className="h-[57px] rounded-full bg-gray-100 focus:outline-none p-6" />
-                        </div>
-                        <div className="flex flex-col gap-2">
-                            <label className="font-[Open Sans] text-xl font-semibold text-[#505050]">Kata Sandi</label>
-                            <input type="password" name="password" className="h-[57px] rounded-full bg-gray-100 focus:outline-none p-6" />
-                            <a href="/" className="font-[Open Sans] text-base font-semibold text-blue-500">Lupa kata sandi?</a>
-                        </div>
-                        <button type="submit" className="h-[57px] rounded-full bg-blue-500 text-white font-bold font-[Open Sans] text-xl">Masuk</button>
-                    </form>
+                    <h2 className="font-[Open Sans] text-[32px] font-bold text-[#413f3f]">Masuk ke Akunmu</h2>
+                    <Form {...methods}>
+                        <form className="flex flex-col gap-6 my-8" onSubmit={onSubmit}>
+                            <div className="flex flex-col gap-2">
+                                <label className="font-[Open Sans] text-xl font-semibold text-[#727070]">Email/No. Handphone</label>
+                                <TextInput title='Email/No. Handphone' name="email" sizing='lg' onChange={(e)=>setValue('name', e.target.value)} type='email'/>
+                            </div>
+                            <div className="flex flex-col gap-2">
+                                <label className="font-[Open Sans] text-xl font-semibold text-[#727070]">Kata Sandi</label>
+                                <TextInput title='Email/No. Handphone' name="password" sizing='lg' onChange={(e)=>setValue('password', e.target.value)} type='password'/>
+                                <a href="/" className="font-[Open Sans] text-base font-semibold text-blue-500">Lupa kata sandi?</a>
+                            </div>
+                            <button type="submit" disabled={loading} className={`h-[57px] rounded-full ${loading ? "bg-blue-300" : "bg-blue-500"} text-white font-bold font-[Open Sans] text-xl`}>{loading ? 'Loading ....' : 'Masuk'}</button>
+                        </form>
+                    </Form>
                     <div className="flex flex-col items-center gap-8">
                         <hr className="w-full border-1" />
                         <button className="w-full h-[57px] border-blue-500 border-2 rounded-full flex justify-center items-center gap-3 font-[Open Sans] text-xl font-bold text-blue-500">
                             <img src="https://i.ibb.co/PFChkDC/google.png" alt="Logo Google" />
                             Masuk dengan Google
                         </button>
-                        <p className="font-[Open Sans] text-center text-sm font-normal leading-5 tracking-wide text-[#505050]">
+                        <p className="font-[Open Sans] text-center text-sm font-normal leading-5 tracking-wide text-[#727070]">
                             Dengan masuk akun kamu menyetujui <Link to="/" className="text-blue-500">Syarat & Ketentuan</Link> dan <Link to="/" className="text-blue-500">Kebijakan Privasi</Link> kami
                         </p>
-                        <p className="font-[Open Sans] font-base font-semibold text-[#505050]">
+                        <p className="font-[Open Sans] font-base font-semibold text-[#727070]">
                             Belum punya akun? <Link to="/register" className="text-blue-500">Daftar</Link>
                         </p>
                     </div>

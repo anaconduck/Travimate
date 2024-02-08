@@ -3,6 +3,8 @@ import Hero from "../../components/layout-clients/part/hero"
 import DownloadApp from "../../section/clients/download-app"
 import WhyUs from "../../section/clients/why-us"
 import WebSlider from "../../section/clients/web-slider"
+import { useSelector } from "react-redux"
+import { CounterState } from "../../store/clients/client.slice"
 
 const HomePage = () => {
 
@@ -13,8 +15,10 @@ const HomePage = () => {
     "https://getwallpapers.com/wallpaper/full/5/c/0/606489.jpg",
   ];
 
+  const dataClient = useSelector((state: { client: CounterState }) => state?.client?.profileClient)
+
   return (
-    <LayoutClient>
+    <LayoutClient dataClient={dataClient}>
         <Hero />
         <div className="w-[80%] m-auto pt-11">
           <WebSlider slides={slides} />

@@ -2,9 +2,13 @@ import { UserCircle } from '@phosphor-icons/react'
 import { Label, Radio, TextInput } from 'flowbite-react'
 import React from 'react'
 import { TbEdit } from 'react-icons/tb'
+import { IUser } from '../../../types/user';
 
-const AccountStage = () => {
+interface IAccountStage {
+    dataClient: IUser | undefined;
+}
 
+const AccountStage = ({dataClient}:IAccountStage) => {
 
     const renderProfileFoto = (
         <div className='w-full text-center flex flex-col justify-center'>

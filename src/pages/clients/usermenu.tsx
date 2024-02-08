@@ -6,6 +6,8 @@ import MenuStage from './usermenu-stage/menu-stage';
 import NotificationStage from './usermenu-stage/notification-stage';
 import AccountStage from './usermenu-stage/account-stage';
 import RulesCheckin from './usermenu-stage/rules-checkin';
+import { useSelector } from 'react-redux';
+import { CounterState } from '../../store/clients/client.slice';
 
 const UserMenuPage = () => {
 
@@ -13,19 +15,20 @@ const UserMenuPage = () => {
   const [riwayat, setRiwayat] = useState('pending')
   const [notification, setNotification] = useState('transaction')
   const path = usePath()
+  const dataClient = useSelector((state: { client: CounterState }) => state?.client?.profileClient)
 
-  const isActive =  'text-blue-600'
+  const isActive =  '!text-white bg-blue-400 rounded-md hover:!bg-blue-400'
 
   useEffect(()=>{
     setStateMenu(path.split('/')[1])
   },[path])
 
   const renderMenuSection = (
-    <MenuStage stateMenu={stateMenu} isActive={isActive}/>
+    <MenuStage dataClient={dataClient} stateMenu={stateMenu} isActive={isActive}/>
   )
 
   const renderAkunState = (
-    <AccountStage/>
+    <AccountStage dataClient={dataClient}/>
   )
 
   const renderRiwayatState = (
@@ -41,12 +44,12 @@ const UserMenuPage = () => {
   )
 
   return (
-    <LayoutClient>
+    <LayoutClient dataClient={dataClient}>
       <div className='flex flex-row w-[100%] py-12 px-28 min-h-screen bg-[#E7F2FF]'>
-        <div className='w-[30%] py-8 px-4'>
+        <div className='w-[40%] lg:w-[30%] py-8 px-4'>
           {renderMenuSection}
         </div>
-        <div className='w-[70%] py-8 px-4'>
+        <div className='w-[60%] lg:w-[70%] py-8 px-4'>
           {stateMenu === 'profile' && renderAkunState}
           {stateMenu === 'history' && renderRiwayatState}
           {stateMenu === 'checkin' && renderCekInState}

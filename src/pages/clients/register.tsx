@@ -1,9 +1,14 @@
-import React, { useState } from "react";
+import React, { useMemo, useState } from "react";
+import * as Yup from 'yup';
+import { yupResolver } from '@hookform/resolvers/yup';
+import { Controller, useForm } from 'react-hook-form';
+import { FormProvider as Form, UseFormReturn } from 'react-hook-form';
+
 import FormCreateAcoount from "../../components/layout-clients/part/form-create-account";
 import FormAdditionalInformation from "../../components/layout-clients/part/form-additional-information";
 import BackgroundRegister from "../../components/layout-clients/part/background-register";
 
-interface InputState {
+export interface InputState {
     username: string;
     email: string;
     password: string;
@@ -23,6 +28,46 @@ const RegisterClient = () => {
     });
 
     const [currentStep, setCurrentStep] = useState<number>(1);
+
+    const LoginSchema = Yup.object().shape({
+        name: Yup.string().required('Title is required'),
+        password: Yup.string().required('Password is required'),
+    });
+
+    const defaultValues = useMemo(
+        () => ({
+            name: '',
+            password: ''
+        }),
+    []
+    );
+
+    const methods = useForm({
+        resolver: yupResolver(LoginSchema),
+        defaultValues,
+    });
+
+    
+    const {
+        reset,
+        watch,
+        control,
+        setValue,
+        handleSubmit,
+        formState: { isSubmitting, isValid },
+    } = methods;
+    
+    const values = watch();
+
+    console.log(input)
+
+    const onSubmit = handleSubmit(async (data) => {
+        try {
+            
+        } catch (error) {
+            
+        }
+    })
 
     const handleInput = (event: React.ChangeEvent<HTMLInputElement>) => {
         let value = event.target.value;
@@ -46,7 +91,9 @@ const RegisterClient = () => {
         <section className="register lg:flex bg-sky-100">
             <BackgroundRegister />
             {currentStep === 1 && (
-                <FormCreateAcoount input={input} nextStep={nextStep} handleInput={handleInput} />
+                <Form {...methods}>
+                    <FormCreateAcoount input={input} nextStep={nextStep} handleInput={handleInput} />
+                </Form>
             )}
             {currentStep === 2 && (
                 <FormAdditionalInformation input={input} handleInput={handleInput} handleRegister={handleRegister} />

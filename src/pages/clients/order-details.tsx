@@ -1,4 +1,8 @@
-import React, { useState } from 'react'
+import React, { useMemo, useState } from 'react'
+import * as Yup from 'yup';
+import { yupResolver } from '@hookform/resolvers/yup';
+import { Controller, useForm } from 'react-hook-form';
+
 import LayoutClient from '../../components/layout-clients/layout'
 import { Helmet } from 'react-helmet'
 import { Datepicker, Label, Radio, TextInput, ToggleSwitch } from 'flowbite-react'
@@ -8,6 +12,56 @@ import ItemCardFlightOrdersDetails from '../../components/layout-clients/part/it
 const OrderDetailsPage = () => {
 
     const [sameWithPemesan, setSameWithPemesan] = useState(false);
+
+    const NewBlogSchema = Yup.object().shape({
+        title: Yup.string().required('Title is required'),
+        // excerpt: Yup.string().nullable(),
+        // content: Yup.string().required('Konten is required '),
+        // categories: Yup.array().min(1, 'Must have at least 1 categories'),
+        // featured_images: Yup.array().nullable(),
+        // published_at: Yup.object().shape({
+        //     published_at_calendar: Yup.mixed<any>().nullable(),
+        //     published_at_clock: Yup.mixed<any>().nullable()
+        // }),
+        // visibility: Yup.string(),
+        // status: Yup.string(),
+        // source: Yup.string().nullable(),
+    });
+
+    const defaultValues = useMemo(
+    () => ({
+        title: '',
+        // excerpt: '',
+        // content: '',
+        // categories: [],
+        // featured_images: [],
+        // published_at: {
+        // published_at_calendar: null,
+        // published_at_clock: null
+        // },
+        // visibility: '',
+        // status: '0',
+        // source: '',
+    }),
+    []
+    );
+
+    const methods = useForm({
+        resolver: yupResolver(NewBlogSchema),
+        defaultValues,
+    });
+
+    
+    const {
+        reset,
+        watch,
+        control,
+        setValue,
+        handleSubmit,
+        formState: { isSubmitting, isValid },
+    } = methods;
+    
+    const values = watch();
 
     const renderDetailPemesan = (
         <>

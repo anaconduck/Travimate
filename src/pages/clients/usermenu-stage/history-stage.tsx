@@ -9,8 +9,8 @@ import OneWay from "../../../components/layout-clients/part/one-way";
 interface IHistoryStage {
   setRiwayat: (state: string) => void;
   riwayat: string;
-  type: "oneWay" | "roundTrip";
-  passengers: number;
+  type?: "oneWay" | "roundTrip";
+  passengers?: number;
 }
 
 const HistoryStage = ({ setRiwayat, riwayat }: IHistoryStage) => {

@@ -2,12 +2,14 @@ import React, { useEffect, useState } from "react";
 import { Outlet, useLocation } from "react-router-dom";
 import Navbar from "./navbar";
 import Footer from "./footer";
+import { IUser } from "../../../types/user";
 
 interface ILayoutClient {
   children: React.ReactNode;
+  dataClient: IUser | undefined;
 }
 
-const LayoutClient = ({ children }: ILayoutClient) => {
+const LayoutClient = ({ children, dataClient }: ILayoutClient) => {
 
 
   const { hash } = useLocation();
@@ -42,7 +44,7 @@ const LayoutClient = ({ children }: ILayoutClient) => {
               ? "bg-blue-500 transition ease-in-out duration-300"
               : "transition ease-in-out duration-300 bg-blue-300 text-white border-b border-b-slate-700 bg-opacity-40 backdrop-blur-md"
           } active px-2 sm:px-4 py-0.5 fixed w-full z-20 top-0 left-0`}>
-          <Navbar/>
+          <Navbar navbar={navbar} dataClient={dataClient} />
         </nav>
         {/* Anda dapat memasukkan children langsung */}
         <div className="mt-20">
