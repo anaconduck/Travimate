@@ -5,14 +5,21 @@ import WhyUs from "../../section/clients/why-us"
 import WebSlider from "../../section/clients/web-slider"
 import { useSelector } from "react-redux"
 import { CounterState } from "../../store/clients/client.slice"
+import InputField from  "../../components/layout-clients/part/inputfield"
+import Slide1 from "../../assets/slide111.png"
+import Slide2 from "../../assets/slide112.png"
+import Slide3 from "../../assets/slide113.png"
+import Slide4 from "../../assets/slide113.png"
+import Slide5 from "../../assets/slide113.png"
 
 const HomePage = () => {
 
   let slides = [
-    "https://i.pinimg.com/originals/51/82/ac/5182ac536727d576c78a9320ac62de30.jpg",
-    "https://wallpapercave.com/wp/wp3386769.jpg",
-    "https://wallpaperaccess.com/full/809523.jpg",
-    "https://getwallpapers.com/wallpaper/full/5/c/0/606489.jpg",
+    Slide1,
+    Slide2,
+    Slide3,
+    Slide4,
+    Slide5,
   ];
 
   const dataClient = useSelector((state: { client: CounterState }) => state?.client?.profileClient)
@@ -20,7 +27,8 @@ const HomePage = () => {
   return (
     <LayoutClient dataClient={dataClient}>
         <Hero />
-        <div className="w-[80%] m-auto pt-11">
+        <InputField/>
+        <div className="w-[100%] px-12 lg:px-32 m-auto">
           <WebSlider slides={slides} />
         </div>
         <DownloadApp />

@@ -1,81 +1,131 @@
+import { IoSearch } from "react-icons/io5";
+import { FaArrowRightArrowLeft } from "react-icons/fa6";
+import airasia from '../../../assets/flight-white/air-aisa.png'
+import citilink from '../../../assets/flight-white/citilink.png'
+import garuda from '../../../assets/flight-white/garuda-indonesia.png'
+import lionair from '../../../assets/flight-white/lion-air.png'
+import malaysiaair from '../../../assets/flight-white/malaysia-airlines.png'
+import qatarair from '../../../assets/flight-white/qatar-airways.png'
+import singaporeair from '../../../assets/flight-white/singapore-airlines.png'
 
 const InputField = () => {
+
+  const IMAGE_FLIGHT = [
+    {id: 1, src:airasia},
+    {id: 2, src:citilink},
+    {id: 3, src:garuda},
+    {id: 4, src:lionair},
+    {id: 5, src:malaysiaair},
+    {id: 6, src:qatarair},
+    {id: 7, src:singaporeair}
+  ]
+
   return (
-    <div className='bg-blue-500 main-container w-[1344px] h-[124px] relative mx-auto my-0'>
-        <div className='w-[1344px] h-[84px] bg-[#fff] rounded-[72px] relative shadow-[0_2px_4px_0_rgba(96,97,112,0.16)] mt-0 mr-0 mb-0 ml-0'>
-            <div className='w-[165px] h-[70px] bg-[#fff] rounded-[18px] border-solid border border-[#3e7bfa] absolute top-[7px] left-[631px] shadow-[0_16px_24px_0_rgba(96,97,112,0.16)] z-[8]'>
-            <div className='flex w-[106px] items-start flex-nowrap relative z-10 mt-[9px] mr-0 mb-0 ml-[26px]'>
-                <span className="flex w-[82px] h-[22px] justify-center items-center shrink-0 basis-auto font-['Open_Sans'] text-[16px] font-bold leading-[22px] text-[#4f4f4f] tracking--0.25px relative text-center whitespace-nowrap z-[11]">
-                Berangkat
-                </span>
-                <div className='w-[24px] h-[24px] shrink-0 relative overflow-hidden z-[12]'>
-                <span className="flex w-[41.67%] h-[66.67%] justify-center items-center font-['Font_Awesome_5_Pro'] text-[16px] font-normal leading-[16px] text-[#333333] absolute top-[16.67%] left-[29.17%] text-center whitespace-nowrap z-[13]">
-                    angle-down
-                </span>
+    <div className='main-container relative px-12 lg:px-16'>
+      <div className="flex justify-center ">
+        <div className="form-input py-6 flex w-[95%] shadow rounded-full px-12 relative translate-y-[-180%] bg-white">
+          <form className="flex w-full items-center gap-3">
+
+            <div className="flex w-[30%] gap-4 items-center">
+              <div className="w-full mb-6 md:mb-0">
+                <div className="relative inputText">
+                  <label className="pb-1 px-2">Dari</label>
+                  <input
+                    type="text"
+                    id="text"
+                    className="form-control block appearance-none w-full text-gray-700 py-3 px-2 pr-6 rounded-[10px] leading-tight focus:outline-none focus:bg-white border-none"
+                    placeholder="Negara, Kota, atau Bandara"
+                    required
+                  />
                 </div>
-            </div>
-            <span className="flex w-[113px] h-[28px] justify-center items-center font-['Open_Sans'] text-[20px] font-semibold leading-[28px] text-[rgba(0,0,0,0.2)] tracking--0.75px relative text-center whitespace-nowrap z-[9] mt-px mr-0 mb-0 ml-[26px]">
-                Pilih Tanggal
-            </span>
-            </div>
-            <div className='w-[165px] h-[70px] bg-[#d9d9d9] rounded-[18px] absolute top-[7px] left-[816px] z-[15]'>
-            <div className='flex w-[83px] gap-[5px] items-start flex-nowrap relative z-[17] mt-[10px] mr-0 mb-0 ml-[29px]'>
-                <span className="flex w-[54px] h-[22px] justify-center items-center shrink-0 basis-auto font-['Open_Sans'] text-[16px] font-bold leading-[22px] text-[rgba(0,0,0,0.2)] tracking--0.25px relative text-center whitespace-nowrap z-[18]">
-                Pulang
-                </span>
-                <div className='w-[24px] h-[24px] shrink-0 relative overflow-hidden z-[19]'>
-                <span className="flex w-[41.67%] h-[66.67%] justify-center items-center font-['Font_Awesome_5_Pro'] text-[16px] font-normal leading-[16px] text-[rgba(0,0,0,0.2)] absolute top-[16.67%] left-[29.17%] text-center whitespace-nowrap z-20">
-                    angle-down
-                </span>
+              </div>
+
+              <div className="bg-amber-500 text-white font-bold rounded-full w-32 h-8 flex items-center justify-center">
+                <FaArrowRightArrowLeft />
+              </div>
+
+              <div className="w-full mb-6 md:mb-0">
+                <div className="relative inputText">
+                  <label className="pb-1 px-2">Ke</label>
+                  <input
+                    type="text"
+                    id="text"
+                    className="form-control block appearance-none w-full text-gray-700 py-3 px-2 pr-6 rounded-[10px] leading-tight focus:outline-none focus:bg-white border-none"
+                    placeholder="Negara, Kota, atau Bandara"
+                    required
+                  />
                 </div>
+              </div>
             </div>
-            <span className="flex w-[113px] h-[28px] justify-center items-center font-['Open_Sans'] text-[20px] font-semibold leading-[28px] text-[rgba(0,0,0,0.2)] tracking--0.75px relative text-center whitespace-nowrap z-[16] mt-px mr-0 mb-0 ml-[29px]">
-                Pilih Tanggal
-            </span>
+
+            <div className="flex w-[67%] gap-4 items-center">
+              <div className="w-full  mb-6 md:mb-0">
+                <div className="relative inputDate">
+                  <label className="pb-1 px-1">Berangkat</label>
+                  <input
+                    type="date"
+                    id="date"
+                    className="form-control block appearance-none w-full text-gray-700 py-3 px-1 pr-6 rounded-[10px] leading-tight focus:outline-none focus:bg-white border-none"
+                    placeholder="Pilih Tanggal"
+                    required
+                  />
+                </div>
+              </div>
+
+              <div className="w-full mb-6 md:mb-0">
+                <div className="relative inputDate">
+                  <label className="pb-1 px-1">Pulang</label>
+                  <input
+                    type="date"
+                    id="date"
+                    className="form-control block appearance-none w-full text-gray-700 py-3 px-1 pr-6 rounded-[10px] leading-tight focus:outline-none focus:bg-white border-none"
+                    placeholder="Pilih Tanggal"
+                    required
+                  />
+                </div>
+              </div>
+
+              <div className="w-full mb-6 md:mb-0">
+                <div className="relative inputTime">
+                  <label className="pb-1 px-2">Penumpang dan Kelas Kabin</label>
+                  <select
+                    className="form-select block appearance-none w-full text-gray-700 py-3 px-2 pr-6 rounded-[10px] leading-tight focus:outline-none focus:bg-white border-none"
+                    id="time"
+                    aria-label="Default select example"
+                    required
+                  >
+                    <option hidden>Pilih</option>
+                    <option value="01:00:00">1 Dewasa, Ekonomi</option>
+                    {/* <option value="02:00:00">09.00 WIB</option>
+                    <option value="03:00:00">10.00 WIB</option>
+                    <option value="04:00:00">11.00 WIB</option>
+                    <option value="05:00:00">12.00 WIB</option> */}
+                  </select>
+                </div>
+              </div>
             </div>
-            <span className="flex w-[221px] h-[22px] justify-center items-center font-['Open_Sans'] text-[16px] font-bold leading-[22px] text-[#4f4f4f] tracking--0.25px absolute top-[16px] left-[1005px] text-center whitespace-nowrap z-[2]">
-            Penumpang dan Kelas Kabin
-            </span>
-            <div className='flex w-[248px] h-[50px] flex-col items-start flex-nowrap absolute top-[17px] left-[37px] z-[25]'>
-            <span className="flex w-[33px] h-[22px] justify-center items-center shrink-0 basis-auto font-['Open_Sans'] text-[16px] font-bold leading-[22px] text-[#4f4f4f] tracking--0.25px relative text-center whitespace-nowrap z-[26]">
-                Dari
-            </span>
-            <span className="flex w-[248px] h-[28px] justify-center items-center shrink-0 basis-auto font-['Open_Sans'] text-[20px] font-semibold leading-[28px] text-[rgba(0,0,0,0.2)] tracking--0.75px relative text-center whitespace-nowrap z-[27]">
-                Negara, Kota, atau Bandara
-            </span>
+            
+            <div className="flex w-[3%] items-end">
+              <button className="bg-blue-500 hover:bg-white text-white font-bold hover:text-blue-500 border border-blue-500 hover:border-blue-500 rounded-full w-[40px] h-10 text-xl flex items-center justify-center">
+                <IoSearch />
+              </button>
             </div>
-            <div className='flex w-[248px] h-[50px] flex-col items-start flex-nowrap absolute top-[17px] left-[363px] z-[33]'>
-            <span className="flex w-[20px] h-[22px] justify-center items-center shrink-0 basis-auto font-['Open_Sans'] text-[16px] font-bold leading-[22px] text-[#4f4f4f] tracking--0.25px relative text-center whitespace-nowrap z-[34]">
-                Ke
-            </span>
-            <span className="flex w-[248px] h-[28px] justify-center items-center shrink-0 basis-auto font-['Open_Sans'] text-[20px] font-semibold leading-[28px] text-[rgba(0,0,0,0.2)] tracking--0.75px relative text-center whitespace-nowrap z-[35]">
-                Negara, Kota, atau Bandara
-            </span>
-            </div>
-            <div className='w-[44px] h-[44px] bg-[url(../assets/images/2fa78ca3-3ece-4125-9492-49454c544de4.png)] bg-cover bg-no-repeat rounded-[50%] absolute top-[20px] left-[1280px] z-[22]' />
-            <div className='w-[44px] h-[44px] bg-[url(../assets/images/72c75df8-335a-4d21-8ee7-d5f6530e38e9.png)] bg-cover bg-no-repeat rounded-[50%] absolute top-[20px] left-[302px] z-30' />
-            <div className='w-[24px] h-[24px] absolute top-[30px] left-[1290px] overflow-hidden z-[23]'>
-            <span className="flex w-[66.67%] h-[66.67%] justify-center items-center font-['Font_Awesome_5_Pro'] text-[16px] font-normal leading-[16px] text-[#fff] absolute top-[16.67%] left-[16.67%] text-center whitespace-nowrap z-[24]">
-                search
-            </span>
-            </div>
-            <div className='w-[24px] h-[24px] absolute top-[30px] left-[312px] overflow-hidden z-[31]'>
-            <span className="flex w-[66.67%] h-[66.67%] justify-center items-center font-['Font_Awesome_5_Pro'] text-[16px] font-normal leading-[16px] text-[#fff] absolute top-[16.67%] left-[16.67%] text-center whitespace-nowrap z-[32]">
-                exchange
-            </span>
-            </div>
-            <div className='flex w-[203px] h-[28px] gap-[3px] items-center flex-nowrap absolute top-[40px] left-[1001px] z-[3]'>
-            <div className='w-[24px] h-[24px] shrink-0 relative overflow-hidden z-[4]'>
-                <span className="flex w-[58.33%] h-[66.67%] justify-center items-center font-['Font_Awesome_5_Pro'] text-[16px] font-normal leading-[16px] text-[#333333] absolute top-[16.67%] left-[20.83%] text-center whitespace-nowrap z-[5]">
-                user
-                </span>
-            </div>
-            <span className="flex w-[176px] h-[28px] justify-center items-center shrink-0 basis-auto font-['Open_Sans'] text-[20px] font-semibold leading-[28px] text-[rgba(0,0,0,0.2)] tracking--0.75px relative text-center whitespace-nowrap z-[6]">
-                1 Dewasa, Ekonomi
-            </span>
-            </div>
+          </form>
         </div>
-        </div>
+      </div>
+      <div className="flex flex-col text-center justify-center translate-y-[-220%] -mb-12">
+          <h4 className="text-white text-2xl font-semibold mb-4">Menemani perjalananmu bersama partner kami</h4>
+          <div className="flex flex-row justify-center gap-3 items-center">
+            {
+              IMAGE_FLIGHT.map((item: {id: number, src: string})=>(
+                <div key={item.id} className="h-7">
+                  <img src={item.src} className="w-full h-full " alt="image 1" />
+                </div>
+              ))
+            }
+          </div>
+      </div>
+    </div>
   )
 }
 
