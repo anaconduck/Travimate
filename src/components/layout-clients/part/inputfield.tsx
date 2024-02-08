@@ -23,7 +23,7 @@ const InputField = () => {
   return (
     <div className='main-container relative px-12 lg:px-16'>
       <div className="flex justify-center ">
-        <div className="form-input py-6 flex w-[95%] shadow rounded-full px-12 relative translate-y-[-180%] bg-white">
+        <div className="form-input py-6 flex w-[95%] shadow rounded-full px-12 relative translate-y-[0%] md:translate-y-[-150%] lg:translate-y-[-180%] xl:translate-y-[-180%] bg-white">
           <form className="flex w-full items-center gap-3">
 
             <div className="flex w-[30%] gap-4 items-center">
@@ -113,12 +113,12 @@ const InputField = () => {
           </form>
         </div>
       </div>
-      <div className="flex flex-col text-center justify-center translate-y-[-220%] -mb-12">
-          <h4 className="text-white text-2xl font-semibold mb-4">Menemani perjalananmu bersama partner kami</h4>
+      <div className="flex flex-col text-center justify-center translate-y-[0%] md:translate-y-[-320%] lg:translate-y-[-290%] xl:translate-y-[-230%] -mb-12">
+          <h4 className="text-white text-lg lg:text-2xl font-semibold mb-4">Menemani perjalananmu bersama partner kami</h4>
           <div className="flex flex-row justify-center gap-3 items-center">
             {
               IMAGE_FLIGHT.map((item: {id: number, src: string})=>(
-                <div key={item.id} className="h-7">
+                <div key={item.id} className="h-5 lg:h-6">
                   <img src={item.src} className="w-full h-full " alt="image 1" />
                 </div>
               ))

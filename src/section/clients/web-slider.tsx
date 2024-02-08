@@ -42,8 +42,8 @@ const WebSlider:React.FC<CarouselProps> = ({ slides }) => {
             className="flex transition ease-out h-[20rem] w-full duration-40"
             style={{ transform: `translateX(-${current * 100}%)` }}
           >
-            {slides.map((s) => (
-              <img key={s} className="rounded-[40px] w-full" src={s} />
+            {slides.map((s, index) => (
+              <img key={index} className="rounded-[40px] w-full" src={s} />
             ))}
           </div>
 
