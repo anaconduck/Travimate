@@ -1,3 +1,4 @@
+import InputField from "./inputfield"
 
 const Hero = () => {
     return (

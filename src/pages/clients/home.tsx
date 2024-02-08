@@ -19,6 +19,7 @@ const HomePage = () => {
   return (
     <LayoutClient>
         <Hero />
+        <InputField/>
         <div className="w-[79%] m-auto pt-12">
           <WebSlider slides={slides} />
         </div>
