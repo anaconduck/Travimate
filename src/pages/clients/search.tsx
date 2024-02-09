@@ -1,11 +1,16 @@
+import LayoutClient from "../../components/layout-clients/layout"
 import SearchSection from "../../section/clients/search-section"
+import { useSelector } from "react-redux"
+import { CounterState } from "../../store/clients/client.slice"
 
 const SearchPage = () => {
+
+  const dataClient = useSelector((state: { client: CounterState }) => state?.client?.profileClient)
+
   return (
-    <div>
-        <p>Judul</p>
+    <LayoutClient dataClient={dataClient}>  
         <SearchSection/>
-    </div>
+    </LayoutClient>
   )
 }
 
