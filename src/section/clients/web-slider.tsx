@@ -13,19 +13,11 @@ const WebSlider: React.FC<CarouselProps> = ({ slides }) => {
   const [current, setCurrent] = useState<number>(0);
 
   const previousSlide = () => {
-    if (current === 0) {
-      setCurrent(slides.length - 1);
-    } else {
-      setCurrent(current - 1);
-    }
+    setCurrent((prev) => (prev === 0 ? slides.length - 1 : prev - 1));
   };
 
   const nextSlide = () => {
-    if (current === slides.length - 1) {
-      setCurrent(0);
-    } else {
-      setCurrent(current + 1);
-    }
+    setCurrent((prev) => (prev === slides.length - 1 ? 0 : prev + 1));
   };
 
   return (
@@ -39,21 +31,38 @@ const WebSlider: React.FC<CarouselProps> = ({ slides }) => {
       </div>
 
       {/* Image Slider */}
-      <div
-        className="flex gap-4 transition ease-out h-[20rem] w-full duration-40"
-        style={{ transform: `translateX(-${current * 100}%)` }}
-      >
-        {slides.map((s, index) => (
-          <img key={index} className="rounded-[40px] w-full" src={s} />
-        ))}
+      <div className="relative h-[40vh] overflow-hidden">
+        <div
+          className="flex gap-4 transition ease-out duration-500"
+          style={{
+            transform: `translateX(-${current * (100 / 3)}%)`,
+            width: `${slides.length * (100 / 3)}%`,
+          }}
+        >
+          {slides.map((s, index) => (
+            <div key={index} className=" rounded-3xl w-[32rem] h-[24rem]">
+              <img
+                className="w-[100%] h-[100%] object-cover p-4"
+                src={s}
+                alt={`Slide ${index + 1}`}
+              />
+            </div>
+          ))}
+        </div>
       </div>
 
       {/* Buttons */}
-      <div className="absolute top-5 h-full w-full justify-between items-center flex text-amber-400 px-1 text-7xl">
-        <button onClick={previousSlide}>
+      <div className="absolute top-0 h-full w-full flex items-center justify-between">
+        <button
+          className="absolute top-1/2 transform -translate-y-[23%] left-0 text-amber-400 text-7xl"
+          onClick={previousSlide}
+        >
           <IoIosArrowDropleftCircle />
         </button>
-        <button onClick={nextSlide}>
+        <button
+          className="absolute top-1/2 transform -translate-y-[23%] right-0 text-amber-400 text-7xl"
+          onClick={nextSlide}
+        >
           <IoIosArrowDroprightCircle />
         </button>
       </div>
