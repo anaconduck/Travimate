@@ -1,3 +1,4 @@
+import { useCallback } from "react";
 import { IoSearch } from "react-icons/io5";
 import { FaArrowRightArrowLeft } from "react-icons/fa6";
 import airasia from '../../../assets/flight-white/air-aisa.png'
@@ -7,6 +8,8 @@ import lionair from '../../../assets/flight-white/lion-air.png'
 import malaysiaair from '../../../assets/flight-white/malaysia-airlines.png'
 import qatarair from '../../../assets/flight-white/qatar-airways.png'
 import singaporeair from '../../../assets/flight-white/singapore-airlines.png'
+import { Link } from "react-router-dom";
+import { useParams, useRouter } from "../../../routes/hooks";
 
 const InputField = () => {
 
@@ -19,6 +22,12 @@ const InputField = () => {
     {id: 6, src:qatarair},
     {id: 7, src:singaporeair}
   ]
+
+  const router = useRouter()
+
+  const handleClickSearch = useCallback(()=>{
+    router.push('/flight/search?dep=dps&arr=cgk&dateDep=2024-02-01&dateArr=2024-02-04&flightClass=economy&isAroundTrip=true')
+  },[])
 
   return (
     <div className='main-container relative px-12 lg:px-16'>
@@ -105,11 +114,13 @@ const InputField = () => {
               </div>
             </div>
             
-            <div className="flex w-[3%] items-end">
-              <button className="bg-blue-500 hover:bg-white text-white font-bold hover:text-blue-500 border border-blue-500 hover:border-blue-500 rounded-full w-[40px] h-10 text-xl flex items-center justify-center">
-                <IoSearch />
-              </button>
-            </div>
+            {/* <Link to={'/flight/search'}> */}
+              <div className="flex w-[3%] items-end">
+                <button onClick={handleClickSearch} className="bg-blue-500 hover:bg-white text-white font-bold hover:text-blue-500 border border-blue-500 hover:border-blue-500 rounded-full w-[40px] h-10 text-xl flex items-center justify-center">
+                  <IoSearch />
+                </button>
+              </div>
+            {/* </Link> */}
           </form>
         </div>
       </div>

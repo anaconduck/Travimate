@@ -1,5 +1,8 @@
-export const BASE_API_URL = import.meta.env.VITE_HOST_API // VITE_API_ENDPOINT;
+export const BASE_API_URL = import.meta.env.VITE_HOST_API
+export const BASE_API_URLV2 = import.meta.env.VITE_API_ENDPOINT // VITE_API_ENDPOINT;
 export const SUCCESS_STATUS_API_RESPONSE = 200
+
+export const GET_FLIGHT_API_URL = '/flight/find-journey'
 
 export const endpoints = {
     chat: '/api/chat',

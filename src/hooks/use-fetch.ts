@@ -2,6 +2,7 @@ import { useState, useEffect, useCallback } from "react";
 
 import travimate from "../api/travimate";
 import { useRouter } from "../routes/hooks";
+import travimatev2 from "../api/tavimatev2";
 
 interface ApiResponseState {
     meta: any; // eslint-disable-line @typescript-eslint/no-explicit-any
@@ -31,7 +32,7 @@ export const UseFetch = (url: string, params?: any) => {
         setApiResponse((prev) => ({ ...prev, loading: true }));
 
         try {
-            const response = await travimate.get(`${url}`, {
+            const response = await travimatev2.get(`${url}`, {
                 headers: {
                     Authorization: accessToken,
                 },

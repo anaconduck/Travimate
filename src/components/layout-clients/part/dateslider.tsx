@@ -1,40 +1,30 @@
-import React, { useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import "./dateSlider.css";
 import Left from "../../../assets/LeftArrow.svg";
 import Right from "../../../assets/RightArrow.svg";
 
-const DateSlider = () => {
-  const dates = [
-    {
-      date: "2021-08-31",
-      day: "Selasa",
-    },
-    {
-      date: "2021-08-31",
-      day: "Selasa",
-    },
-    {
-      date: "2021-08-31",
-      day: "Selasa",
-    },
-    {
-      date: "2021-08-31",
-      day: "Selasa",
-    },
-    {
-      date: "2021-08-31",
-      day: "Selasa",
-    },
-    {
-      date: "2021-08-31",
-      day: "Selasa",
-    },
-    {
-      date: "2021-08-31",
-      day: "Selasa",
-    },
-  ];
-  const tabsBoxRef = useRef(null);
+interface IDateSlider {
+  setDateSelected: any
+}
+
+const DateSlider = ({setDateSelected}: IDateSlider) => {
+  const [activeIndex, setActiveIndex] = useState(0);
+
+  const generateDates = () => {
+    const startDate = new Date("2024-02-01");
+    const endDate = new Date("2024-02-29");
+    const dates = [];
+    for (let date = startDate; date <= endDate; date.setDate(date.getDate() + 1)) {
+      dates.push({
+        date: date.toISOString().split("T")[0], // Format date to YYYY-MM-DD
+        day: date.toLocaleDateString("id-ID", { weekday: "long" }), // Get full weekday name in Indonesian
+      });
+    }
+    return dates;
+  };
+
+  const dates = generateDates();
+  const tabsBoxRef = useRef(null); 
 
   const handleIcons = () => {
     const tabsBox = tabsBoxRef.current;
@@ -46,8 +36,15 @@ const DateSlider = () => {
     arrowIcons[1].parentElement.style.display =
       maxScrollableWidth - tabsBox.scrollLeft <= 1 ? "none" : "flex";
   };
+  const selectedDate = dates[activeIndex];
+
+  useEffect(()=>{
+    setDateSelected(selectedDate)
+  },[])
 
   const handleTabClick = (index) => {
+    setActiveIndex(index);
+    setDateSelected(selectedDate)
     const tabsBox = tabsBoxRef.current;
     const tabs = tabsBox.querySelectorAll(".tab");
 
@@ -77,32 +74,34 @@ const DateSlider = () => {
   };
 
   return (
-    <div className="wrapper">
-      <div className="icon" onClick={() => handleArrowClick("left")}>
-        <img src={Left} alt="Left Arrow" />
-      </div>
-      <ul
-        className="tabs-box"
-        ref={tabsBoxRef}
-        // onMouseDown={handleMouseDown}
-        // onMouseMove={handleMouseMove}
-        // onMouseUp={handleMouseUp}
-      >
-        {dates.map((date, index) => (
-          <li
-            key={index}
-            className={`tab ${index === 0 ? "active" : ""}`}
-            onClick={() => handleTabClick(index)}
-          >
-            <div>
-              <h1>{date.date}</h1>
-              <h1>{date.day}</h1>
-            </div>
-          </li>
-        ))}
-      </ul>
-      <div className="icon" onClick={() => handleArrowClick("right")}>
-        <img src={Right} alt="Right Arrow" />
+    <div className="pt-20 pb-6 px-12">
+      <div className="wrapper">
+        <div className="icon" onClick={() => handleArrowClick("left")}>
+          <img src={Left} alt="Left Arrow" />
+        </div>
+        <ul
+          className="tabs-box"
+          ref={tabsBoxRef}
+          // onMouseDown={handleMouseDown}
+          // onMouseMove={handleMouseMove}
+          // onMouseUp={handleMouseUp}
+        >
+          {dates.map((date, index) => (
+            <li
+              key={index}
+              className={`tab ${index === 0 ? "active" : ""}`}
+              onClick={() => handleTabClick(index)}
+            >
+              <div>
+                <h1>{date.date}</h1>
+                <h1>{date.day}</h1>
+              </div>
+            </li>
+          ))}
+        </ul>
+        <div className="icon" onClick={() => handleArrowClick("right")}>
+          <img src={Right} alt="Right Arrow" />
+        </div>
       </div>
     </div>
   );

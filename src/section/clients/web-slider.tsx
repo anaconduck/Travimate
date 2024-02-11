@@ -31,7 +31,7 @@ const WebSlider: React.FC<CarouselProps> = ({ slides }) => {
       </div>
 
       {/* Image Slider */}
-      <div className="relative h-[40vh] overflow-hidden">
+      <div className="relative h-[30vh] overflow-hidden">
         <div
           className="flex gap-4 transition ease-out duration-500"
           style={{
@@ -40,9 +40,9 @@ const WebSlider: React.FC<CarouselProps> = ({ slides }) => {
           }}
         >
           {slides.map((s, index) => (
-            <div key={index} className=" rounded-3xl w-[32rem] h-[24rem]">
+            <div key={index} className="w-[100%] h-[20rem]">
               <img
-                className="w-[100%] h-[100%] object-cover p-4"
+                className="w-[100%] h-[100%] rounded-[30px] object-cover p-4"
                 src={s}
                 alt={`Slide ${index + 1}`}
               />
@@ -54,13 +54,13 @@ const WebSlider: React.FC<CarouselProps> = ({ slides }) => {
       {/* Buttons */}
       <div className="absolute top-0 h-full w-full flex items-center justify-between">
         <button
-          className="absolute top-1/2 transform -translate-y-[23%] left-0 text-amber-400 text-7xl"
+          className="absolute top-1/2 transform -translate-y-[0%] left-0 text-amber-400 text-7xl"
           onClick={previousSlide}
         >
           <IoIosArrowDropleftCircle />
         </button>
         <button
-          className="absolute top-1/2 transform -translate-y-[23%] right-0 text-amber-400 text-7xl"
+          className="absolute top-1/2 transform -translate-y-[0%] right-0 text-amber-400 text-7xl"
           onClick={nextSlide}
         >
           <IoIosArrowDroprightCircle />
