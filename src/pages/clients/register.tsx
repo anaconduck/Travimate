@@ -90,14 +90,16 @@ const RegisterClient = () => {
     return (
         <section className="register lg:flex bg-sky-100">
             <BackgroundRegister />
-            {currentStep === 1 && (
-                <Form {...methods}>
-                    <FormCreateAcoount input={input} nextStep={nextStep} handleInput={handleInput} />
-                </Form>
-            )}
-            {currentStep === 2 && (
-                <FormAdditionalInformation input={input} handleInput={handleInput} handleRegister={handleRegister} />
-            )}
+            <div className="w-[55%]">
+                {currentStep === 1 && (
+                    <Form {...methods}>
+                        <FormCreateAcoount input={input} nextStep={nextStep} handleInput={handleInput} />
+                    </Form>
+                )}
+                {currentStep === 2 && (
+                    <FormAdditionalInformation input={input} handleInput={handleInput} handleRegister={handleRegister} />
+                )}
+            </div>
         </section>
     );
 }

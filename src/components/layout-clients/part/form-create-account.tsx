@@ -11,7 +11,7 @@ interface IRegisterForm {
 
 const FormCreateAccount = ({ input, nextStep, handleInput }) => {
     return (
-        <div className="flex justify-center lg:items-center min-h-screen lg:w-2/4 px-8 md:px-24 py-12">
+        <div className="flex justify-center lg:items-center min-h-screen px-8 md:px-56 py-12">
             <div className="w-full bg-white p-12 rounded-[27px] shadow-md">
                 <h2 className="font-[Open Sans] text-lg xl:text-[2rem] font-bold text-[#505050]">Buat Akun</h2>
                 <div className="flex flex-col gap-4 my-8">
