@@ -99,7 +99,7 @@ const LoginClient = () => {
                     <Form {...methods}>
                         <form className="flex flex-col gap-6 my-8" onSubmit={onSubmit}>
                             <div className="flex flex-col gap-2">
-                                <label className="font-[Open Sans] text-xl font-semibold text-[#727070]">Email/No. Handphone</label>
+                                <label className="font-[Open Sans] text-xl font-semibold text-[#727070]">Username</label>
                                 <TextInput title='Email/No. Handphone' name="email" sizing='lg' onChange={(e)=>setValue('name', e.target.value)} type='text'/>
                             </div>
                             <div className="flex flex-col gap-2">
