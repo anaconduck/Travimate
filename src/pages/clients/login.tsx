@@ -7,7 +7,7 @@ import { TextInput } from "flowbite-react";
 import React, { useMemo, useState } from "react";
 import { Link } from "react-router-dom";
 import travimate from '../../api/travimate';
-import { SUCCESS_STATUS_API_RESPONSE, endpoints } from '../../utils/endpoint';
+import { AUTH_API_URL, SUCCESS_STATUS_API_RESPONSE, endpoints } from '../../utils/endpoint';
 import { useDispatch } from 'react-redux';
 import { setDataClient } from '../../store/clients/client.slice';
 
@@ -50,12 +50,13 @@ const LoginClient = () => {
     const onSubmit = handleSubmit(async (data) => {
         setLoading(true)
         const bodyForm = {
-            email: data.name,
+            username: data.name,
             password: data.password
         }
 
+        // AUTH_API_URL endpoints.auth.login
         try {
-            await travimate.post(`${endpoints.auth.login}`, bodyForm
+            await travimate.post(`${AUTH_API_URL}/signin`, bodyForm
             // , {
             //     headers: {
             //         'Client-Key': ClientKey,
@@ -63,11 +64,12 @@ const LoginClient = () => {
             //     }
             // }
             ).then((response) => {
+                console.log(response)
                 const statusResponse = response
                 if (statusResponse.status === SUCCESS_STATUS_API_RESPONSE) {
                     sessionStorage.setItem('at', statusResponse?.data?.accessToken)
                     dispatch(setDataClient({
-                        profileClient: statusResponse?.data?.user 
+                        profileClient: statusResponse?.data 
                     }))
                     window.location.href = "/"
                     setLoading(false) 
@@ -98,7 +100,7 @@ const LoginClient = () => {
                         <form className="flex flex-col gap-6 my-8" onSubmit={onSubmit}>
                             <div className="flex flex-col gap-2">
                                 <label className="font-[Open Sans] text-xl font-semibold text-[#727070]">Email/No. Handphone</label>
-                                <TextInput title='Email/No. Handphone' name="email" sizing='lg' onChange={(e)=>setValue('name', e.target.value)} type='email'/>
+                                <TextInput title='Email/No. Handphone' name="email" sizing='lg' onChange={(e)=>setValue('name', e.target.value)} type='text'/>
                             </div>
                             <div className="flex flex-col gap-2">
                                 <label className="font-[Open Sans] text-xl font-semibold text-[#727070]">Kata Sandi</label>

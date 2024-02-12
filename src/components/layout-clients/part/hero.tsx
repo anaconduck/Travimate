@@ -2,7 +2,7 @@ import { ReactTyped } from "react-typed"
 
 const Hero = () => {
     return (
-        <div className="hero px-12 -mb-12 md:px-12 xl:px-32 h-[36rem] md:h-[40rem] bg-[url('/src/assets/plane.png')] bg-no-repeat bg-fixed md:bg-[url('')] md:relative pt-12 bg-blue-500 rounded-bl-[72px] rounded-br-[72px] flex flex-row justify-between items-center">
+        <div className="hero px-12 -mb-12 md:px-12 xl:px-32 h-[36rem] md:h-[50rem] bg-[url('/src/assets/plane.png')] bg-no-repeat bg-fixed md:bg-[url('')] md:relative pt-12 bg-blue-500 rounded-bl-[72px] rounded-br-[72px] flex flex-row justify-between items-center">
             <div className="flex flex-col justify-end h-[30rem] md:h-0">
                 <div className="text-white md:mb-12 text-[32px] font-semibold font-['Open Sans'] leading-10">
                     <p data-aos="fade-up" data-aos-duration="1000" className="text-white text-lg md:text-xl lg:text-[2rem] font-bold font-['Open Sans'] lg:mb-8">

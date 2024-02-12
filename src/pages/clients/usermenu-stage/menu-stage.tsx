@@ -52,11 +52,11 @@ const MenuStage = ({stateMenu, isActive, dataClient}:IMenuStage) => {
         <NavLink to="/logout" onClick={()=>{
           sessionStorage.removeItem('at')
           sessionStorage.clear()
-          window.open('/')
+          window.open('/', '_self')
           dispatch(logoutClient())
         }} className={`flex flex-row gap-4 font-bold py-3 px-4 text-red-700 transition-all hover:bg-blue-100 hover:rounded-md items-center ${stateMenu === 'logout' && isActive}`}>
           <SignOut size={32} weight="bold" />
-          <p>Keluar</p>
+          <p>Logout</p>
         </NavLink>
       </div>
     </div>

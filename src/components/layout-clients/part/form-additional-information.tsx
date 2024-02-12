@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 const FormAdditionalInformation = ({ input, handleInput, handleRegister }) => {
     return (
-        <div className="w-full">
+        <div className="w-full my-auto">
             <div className="flex justify-center lg:items-center p-12 md:px-44">
                 <div className="w-full bg-white p-8 rounded-[27px] shadow-md">
                     <h2 className="font-[Open Sans] text-[32px] font-bold text-[#505050]">Informasi Tambahan</h2>

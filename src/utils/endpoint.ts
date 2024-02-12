@@ -3,6 +3,8 @@ export const BASE_API_URLV2 = import.meta.env.VITE_API_ENDPOINT // VITE_API_ENDP
 export const SUCCESS_STATUS_API_RESPONSE = 200
 
 export const GET_FLIGHT_API_URL = '/flight/find-journey'
+export const AUTH_API_URL = '/auth'
+
 
 export const endpoints = {
     chat: '/api/chat',
