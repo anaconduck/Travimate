@@ -42,7 +42,7 @@ const AccountStage = ({dataClient}:IAccountStage) => {
 
             <div className='foto flex flex-col gap-2'>
                 <h6 className="text-neutral-600 text-md font-semibold font-['Open Sans'] leading-7">Foto Profil</h6>
-                <TextInput title='Tanggal Kadaluarsa Passport' onChange={(e)=>console.log(e.target.value)} type='file'/>
+                <TextInput title='Foto Profil' onChange={(e)=>console.log(e.target.value)} type='file'/>
             </div>
 
             <div className='actions-button'>
