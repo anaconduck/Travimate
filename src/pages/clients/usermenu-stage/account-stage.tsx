@@ -40,7 +40,6 @@ const AccountStage = ({dataClient}:IAccountStage) => {
                 {/* <p className='text-sm text-gray-300'>Seperti di KTP, Paspor, dan SIM</p> */}
             </div>
 
-
             <div className='foto flex flex-col gap-2'>
                 <h6 className="text-neutral-600 text-md font-semibold font-['Open Sans'] leading-7">Foto Profil</h6>
                 <TextInput title='Tanggal Kadaluarsa Passport' onChange={(e)=>console.log(e.target.value)} type='file'/>
