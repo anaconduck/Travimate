@@ -213,11 +213,7 @@ const InputField = () => {
                       >
                         <option hidden>Pilih</option>
                         <option value="economy">1 Dewasa, Ekonomi</option>
-                        <option value="preimum_economy">1 Dewasa, Premium Ekonomi</option>
-                        {/* <option value="02:00:00">09.00 WIB</option>
-                        <option value="03:00:00">10.00 WIB</option>
-                        <option value="04:00:00">11.00 WIB</option>
-                        <option value="05:00:00">12.00 WIB</option> */}
+                        <option value="premium_economy">1 Dewasa, Premium Ekonomi</option>
                       </select>
                     </div>
                   </div>
