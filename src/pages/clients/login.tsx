@@ -86,7 +86,7 @@ const LoginClient = () => {
         <section className="login flex h-[100vh] w-full justify-between">
             {/* Gambar di sisi kiri */}
             <div className="hidden lg:block lg:w-4/5 relative bg-blue-500 justify-center md:flex md:flex-col">
-                <h2 className="font-[Open Sans] text-[32px] font-bold text-white my-auto text-center mt-44">Pulang Kampung Tanpa Hambatan.</h2>
+                <h2 className="font-[Open Sans] font-bold text-white my-auto xl:mt-44 xl:text-[32px] xl:text-center md:mt-20 md:text-[22px] md:text-center">Pulang Kampung Tanpa Hambatan.</h2>
                 <div className="w-[100%] h-[100vh] absolute bottom-0">
                     <img src="https://i.ibb.co/ftcDBrk/Group.png" className="w-[100%] h-[100%]" alt="Background" />
                 </div>
