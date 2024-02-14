@@ -1,5 +1,5 @@
 import LayoutClient from "../../components/layout-clients/layout";
-import SearchSection from "../../section/clients/search-section";
+import SearchField from "../../components/layout-clients/part/searchfield"
 import { useSelector } from "react-redux";
 import { CounterState } from "../../store/clients/client.slice";
 
@@ -10,7 +10,7 @@ const SearchPage = () => {
 
   return (
     <LayoutClient dataClient={dataClient}>
-      <SearchSection />
+      <SearchField />
     </LayoutClient>
   );
 };

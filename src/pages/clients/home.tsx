@@ -16,6 +16,7 @@ const HomePage = () => {
     Slide1,
     Slide2,
     Slide3,
+    Slide2,
   ];
 
   const dataClient = useSelector((state: { client: CounterState }) => state?.client?.profileClient)

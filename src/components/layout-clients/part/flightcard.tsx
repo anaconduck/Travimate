@@ -1,5 +1,4 @@
 import React from 'react'
-
 import Citilink from '../../../assets/citilink.svg';
 import Planeline from '../../../assets/planeline.svg';
 
@@ -14,7 +13,7 @@ const props: Props = {
 
 const FlightCard = (props: Props) => {
   return (
-    <div className="container-lg mx-12 my-8">
+    <div className="container-lg mx-12 pt-6 pb-8">
     <div className="flex justify-between gap-10">
         <div className="flex flex-col gap-4 px-7 p-7 text-center w-full bg-slate-50 rounded-3xl">
             <div className='flex justify-between'>
@@ -22,7 +21,7 @@ const FlightCard = (props: Props) => {
                     <img src={Citilink} className='pe-2' alt="Airplane" />
                     <p className="text-black text-[28px] font-bold font-['Open Sans']">{props.airplane}</p>
                 </div>  
-                <a href="" className="text-blue-700 text-[20px] font-bold font-['Open Sans']">lihat detail</a>
+                <a href="/payment" className="text-white rounded-full w-[9%] bg-blue-500 text-[25px] font-bold font-['Open Sans']">Pilih</a>
             </div>
             <div className='flex justify-between'>
                 <div className='flex justify-start'>

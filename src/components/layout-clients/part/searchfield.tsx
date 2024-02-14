@@ -83,9 +83,10 @@ const SearchField = () => {
     <div id="section-a"className="items-center bg-blue-200">
         <DateSlider setDateSelected={setDateSelected} />
 
-
-
         <FlightCard airplane={"Citilink"}/>
+        <FlightCard airplane={"Airline"}/>
+        <FlightCard airplane={"Airline"}/>
+        <FlightCard airplane={"Airline"}/>
         <FlightCard airplane={"Airline"}/>
     </div>
   )
