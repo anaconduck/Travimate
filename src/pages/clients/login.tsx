@@ -105,7 +105,7 @@ const LoginClient = () => {
                             <div className="flex flex-col gap-2">
                                 <label className="font-[Open Sans] text-xl font-semibold text-[#727070]">Kata Sandi</label>
                                 <TextInput title='Password' name="password" sizing='lg' onChange={(e)=>setValue('password', e.target.value)} type='password'/>
-                                <a href="/" className="font-[Open Sans] text-base font-semibold text-blue-500">Lupa kata sandi?</a>
+                                <a href="/forgot-password" className="font-[Open Sans] text-base font-semibold text-blue-500">Lupa kata sandi?</a>
                             </div>
                             <button type="submit" disabled={/*!isValid ||*/ loading} className={`h-[57px] rounded-full ${/*!isValid ||*/ loading ? "bg-blue-300" : "bg-blue-500"} text-white font-bold font-[Open Sans] text-xl`}>{loading ? 'Loading ....' : 'Masuk'}</button>
                         </form>
