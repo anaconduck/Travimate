@@ -63,7 +63,7 @@ const Navbar = ({dataClient, navbar}: INavbarClient) => {
                 <NavLink to="/profile" className="flex items-center">
                   <div className="text-xl text-white font-semibold">{dataClient?.displayName}</div>
                   <div className="bg-blue-100 hover:bg-blue-400 text-blue-600 hover:text-blue-700 w-12 h-12 ml-3 rounded-full flex items-end">
-                    <img src={dataClient?.photoURL} alt="image client" className="w-full h-full rounded-full" />
+                    <img src={dataClient?.pp} alt="image client" className="w-full h-full" />
                     {/* <TbUserFilled className="w-8 h-8" /> */}
                   </div>
                 </NavLink>

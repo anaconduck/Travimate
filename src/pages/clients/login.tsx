@@ -16,7 +16,7 @@ const LoginClient = () => {
     const dispatch = useDispatch()
     const [loading, setLoading] = useState(false)
     const LoginSchema = Yup.object().shape({
-        name: Yup.string().required('Title is required'),
+        name: Yup.string().required('Email is required'),
         password: Yup.string().required('Password is required'),
     });
 
@@ -45,12 +45,12 @@ const LoginClient = () => {
     
     const values = watch();
 
-    // console.log(values.name, values.password)
+    console.log(values.name, values.password)
 
     const onSubmit = handleSubmit(async (data) => {
         setLoading(true)
         const bodyForm = {
-            username: data.name,
+            email: data.name,
             password: data.password
         }
 
@@ -99,15 +99,15 @@ const LoginClient = () => {
                     <Form {...methods}>
                         <form className="flex flex-col gap-6 my-8" onSubmit={onSubmit}>
                             <div className="flex flex-col gap-2">
-                                <label className="font-[Open Sans] text-xl font-semibold text-[#727070]">Username</label>
-                                <TextInput title='Email/No. Handphone' name="email" sizing='lg' onChange={(e)=>setValue('name', e.target.value)} type='text'/>
+                                <label className="font-[Open Sans] text-xl font-semibold text-[#727070]">Email</label>
+                                <TextInput title='Email' name="email" sizing='lg' onChange={(e)=>setValue('name', e.target.value)} type='email'/>
                             </div>
                             <div className="flex flex-col gap-2">
                                 <label className="font-[Open Sans] text-xl font-semibold text-[#727070]">Kata Sandi</label>
-                                <TextInput title='Email/No. Handphone' name="password" sizing='lg' onChange={(e)=>setValue('password', e.target.value)} type='password'/>
+                                <TextInput title='Password' name="password" sizing='lg' onChange={(e)=>setValue('password', e.target.value)} type='password'/>
                                 <a href="/" className="font-[Open Sans] text-base font-semibold text-blue-500">Lupa kata sandi?</a>
                             </div>
-                            <button type="submit" disabled={loading} className={`h-[57px] rounded-full ${loading ? "bg-blue-300" : "bg-blue-500"} text-white font-bold font-[Open Sans] text-xl`}>{loading ? 'Loading ....' : 'Masuk'}</button>
+                            <button type="submit" disabled={!isValid || loading} className={`h-[57px] rounded-full ${!isValid || loading ? "bg-blue-300" : "bg-blue-500"} text-white font-bold font-[Open Sans] text-xl`}>{loading ? 'Loading ....' : 'Masuk'}</button>
                         </form>
                     </Form>
                     <div className="flex flex-col items-center gap-8">

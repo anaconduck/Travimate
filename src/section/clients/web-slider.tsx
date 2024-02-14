@@ -54,13 +54,13 @@ const WebSlider: React.FC<CarouselProps> = ({ slides }) => {
       {/* Buttons */}
       <div className="absolute top-0 h-full w-full flex items-center justify-between">
         <button
-          className="absolute top-1/2 transform -translate-y-[0%] left-0 text-amber-400 text-7xl"
+          className="absolute top-1/2 transform -translate-y-[0%] left-0 text-amber-400 text-6xl"
           onClick={previousSlide}
         >
           <IoIosArrowDropleftCircle />
         </button>
         <button
-          className="absolute top-1/2 transform -translate-y-[0%] right-0 text-amber-400 text-7xl"
+          className="absolute top-1/2 transform -translate-y-[0%] right-0 text-amber-400 text-6xl"
           onClick={nextSlide}
         >
           <IoIosArrowDroprightCircle />

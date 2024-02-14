@@ -96,7 +96,8 @@ const RegisterClient = () => {
                     window.location.href = "/login"
                     setLoading(false) 
                 }
-            }).catch(() => {
+            }).catch((error) => {
+                console.error('Error:', error);
                 setLoading(false)
             })
         } catch (error) {

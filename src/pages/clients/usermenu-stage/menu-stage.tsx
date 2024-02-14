@@ -19,13 +19,13 @@ const MenuStage = ({stateMenu, isActive, dataClient}:IMenuStage) => {
     <div className='flex flex-col w-full gap-4 p-8 pb-12 bg-white rounded-[27.51px]'>
       <div className='flex flex-row gap-4 items-center'>
         <div className='w-24 h-24'>
-          <img src={dataClient.photoURL || ''} alt="photo acccount" className='rounded-full w-full h-full' />
+          <img src={dataClient.pp || ''} alt="photo acccount" className='w-full h-full' />
           {/* <UserCircle size={100} weight="fill" color='blue' /> */}
         </div>
         <div className='flex flex-col gap-2'>
-          <h6 className='font-bold text-gray-600 text-[1.2rem]'>{dataClient.displayName}</h6>
+          <h6 className='font-bold text-gray-600 text-[1.2rem]'>{dataClient.username}</h6>
           <div>
-            <p className='font-bold text-gray-400 text-[0.9rem]'>{dataClient.phoneNumber}</p>
+            <p className='font-bold text-gray-400 text-[0.9rem]'>{dataClient.phone}</p>
             <p className='font-bold text-gray-400 text-[0.9rem]'>{dataClient.email}</p>
           </div>
         </div>
