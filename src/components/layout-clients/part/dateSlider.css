@@ -29,8 +29,8 @@
   /* background: linear-gradient(-90deg, #fff 70%, transparent); */
 }
 .icon img {
-  width: 54px;
-  height: 115px;
+  width: 55px;
+  height: 90px;
   cursor: pointer;
   font-size: 1.5rem;
   text-align: center;
@@ -67,7 +67,7 @@
   font-size: 1.5rem;
   white-space: nowrap;
   background: #fff;
-  padding: 20px 30px;
+  padding: 8px 29px;
   /* border-radius: 30px; */
   border: 1px solid #d8d5f2;
 }
