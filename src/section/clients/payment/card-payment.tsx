@@ -119,7 +119,7 @@ const CardPayment = ({onSubmit, values, handleSetValueInput}:ICardPayment) => {
           Ringkasan Pesanan
         </div>
         <div className="mt-2 text-lg text-slate-600">
-          Jul 7, 2024 - Jul 11, 2024
+          02-02-2024 - 04-02-2024
         </div>
         <div className="flex justify-start items-center gap-2 mt-2 text-lg text-slate-600">
           <div>CGK</div>
@@ -137,7 +137,7 @@ const CardPayment = ({onSubmit, values, handleSetValueInput}:ICardPayment) => {
               />
             </svg>
           </div>
-          <div>Bali (DPS)</div>
+          <div>DPS</div>
         </div>
         <div className="flex justify-center items-center text-blue-600 font-bold my-5 text-lg">
           <button>Detail</button>
