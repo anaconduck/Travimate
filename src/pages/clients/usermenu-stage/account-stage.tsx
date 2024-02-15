@@ -22,10 +22,22 @@ const AccountStage = ({dataClient}:IAccountStage) => {
     const renderFormAccount = (
         <div className='flex flex-col gap-4'>
 
-            <div className='nama_lengkap flex flex-col gap-2'>
-                <h6 className="text-neutral-600 text-md font-semibold font-['Open Sans'] leading-7">Nama Lengkap</h6>
-                <TextInput title='Nama Lengkap' onChange={(e)=>console.log(e.target.value)} type='text'/>
-                {/* <p className='text-sm text-gray-300'>Seperti di KTP, Paspor, dan SIM</p> */}
+            <div className='sapaan'>
+                <h6 className="text-neutral-600 text-md font-semibold font-['Open Sans'] leading-7">Sapaan</h6>
+                <fieldset className="flex max-w-md flex-row gap-4 mt-2">
+                    <div className="flex items-center gap-2">
+                        <Radio id="tuan" name="countries" value="tuan" defaultChecked />
+                        <Label htmlFor="tuan">Tuan</Label>
+                    </div>
+                    <div className="flex items-center gap-2">
+                        <Radio id="Nyonya" name="countries" value="Nyonya" />
+                        <Label htmlFor="Nyonya">Nyonya</Label>
+                    </div>
+                    <div className="flex items-center gap-2">
+                        <Radio id="spain" name="countries" value="Nona" />
+                        <Label htmlFor="Nona">Nona</Label>
+                    </div>
+                </fieldset>
             </div>
 
             <div className='tanggal_lahir flex flex-col gap-2'>
