@@ -5,10 +5,12 @@ import Planeline from '../../../assets/planeline.svg';
 
 type Props = {
     airplane: string|null;
+    logo:string;
 };
 
 const props: Props = {
     airplane: "Citilink",
+    logo:Citilink,
 };
 
 const FlightCard = (props: Props) => {
@@ -18,8 +20,8 @@ const FlightCard = (props: Props) => {
         <div className="flex flex-col gap-4 px-7 p-7 text-center w-full bg-slate-50 rounded-3xl">
             <div className='flex justify-between'>
                 <div className='flex justify-start'>
-                    <img src={Citilink} className='pe-2' alt="Airplane" />
-                    <p className="text-black text-[28px] font-bold font-['Open Sans']">{props.airplane}</p>
+                    <img src={props.logo || Citilink} className='pe-2 px-2' alt="Airplane" />
+                    <p className="text-black text-[28px] font-bold font-['Open Sans'] px-2">{props.airplane || "Citilink"}</p>
                 </div>  
                 <a href="/payment" className="text-white rounded-full w-[9%] bg-blue-500 text-[25px] font-bold font-['Open Sans']">Pilih</a>
             </div>

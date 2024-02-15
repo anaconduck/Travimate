@@ -12,7 +12,7 @@ const DateSlider = ({setDateSelected}: IDateSlider) => {
 
   const generateDates = () => {
     const startDate = new Date("2024-02-01");
-    const endDate = new Date("2024-02-28");
+    const endDate = new Date("2024-02-04");
     const dates = [];
     for (let date = startDate; date <= endDate; date.setDate(date.getDate() + 1)) {
       dates.push({
