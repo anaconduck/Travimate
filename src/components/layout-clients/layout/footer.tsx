@@ -1,23 +1,23 @@
 const Footer = () => {
   return (
-    <div className="w-full min-h-[24rem] px-12 md:px-32 py-12 flex flex-col md:flex-row justify-between items-center bg-[url('/src/assets/tes.png')] bg-cover bg-end">
-        <div className="w-full md:w-[60%] h-[12rem] flex flex-col justify-between">
+    <div className="w-full min-h-[28rem] px-12 md:px-32 py-12 flex flex-col md:flex-row justify-between items-center bg-[url('/src/assets/tes.png')] bg-cover bg-end">
+        <div className="w-full md:w-[60%] h-[15rem] flex flex-col justify-between">
             <div className="flex flex-col gap-1">
                 <div data-aos="fade-right" data-aos-duration="1200" className="w-[12rem] my-1">
                     <img src="https://i.ibb.co/WxQ3wSM/logo.png" className="w-full h-full" alt="logo" />
                 </div>
                 <div data-aos="fade-right" data-aos-duration="1600" className="text-white text-xl font-semibold font-['Open Sans'] leading-7">Kami sahabat setia dalam setiap langkah petualangan.</div>
             
-                <div data-aos="fade-right" data-aos-duration="2000" className="items-end">
-                    <div className="text-white text-lg font-normal font-['Open Sans'] leading-snug">2024 Travimate. All Rights Reserved.</div>
+                <div data-aos="fade-right" data-aos-duration="2500" className="mt-5 flex flex-wrap md:flex-row gap-4 items-end">
+                    <div className="text-white text-base font-semibold font-['Open Sans'] leading-normal">Tentang Kami</div>
+                    <div className="text-white text-base font-semibold font-['Open Sans'] leading-normal">Cara Pesan</div>
+                    <div className="text-white text-base font-semibold font-['Open Sans'] leading-normal">Pusat Bantuan</div>
+                    <div className="text-white text-base font-semibold font-['Open Sans'] leading-normal">Karir</div>
                 </div>
             </div>
 
-            <div data-aos="fade-right" data-aos-duration="2500" className="flex flex-wrap md:flex-row gap-4">
-                <div className="text-white text-base font-semibold font-['Open Sans'] leading-normal">Tentang Kami</div>
-                <div className="text-white text-base font-semibold font-['Open Sans'] leading-normal">Cara Pesan</div>
-                <div className="text-white text-base font-semibold font-['Open Sans'] leading-normal">Pusat Bantuan</div>
-                <div className="text-white text-base font-semibold font-['Open Sans'] leading-normal">Karir</div>
+            <div data-aos="fade-right" data-aos-duration="2500">
+                <div className="text-white text-lg font-normal font-['Open Sans'] leading-snug">2024 Travimate. All Rights Reserved.</div>
             </div>
         </div>
             

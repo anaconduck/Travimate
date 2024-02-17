@@ -52,14 +52,14 @@ const FormCreateAccount = ({ input, nextStep, handleInput }) => {
                     <button
                         type="submit"
                         onClick={nextStep}
-                        className="h-[57px] rounded-full bg-blue-500 text-white font-bold font-[Open Sans] text-xl"
+                        className="h-[57px] rounded-full bg-blue-500 hover:bg-blue-400 text-white font-bold font-[Open Sans] text-xl"
                     >
                         Daftar
                     </button>
                 </div>
                 <div className="flex flex-col items-center gap-8">
                     <hr className="w-full border-1" />
-                    <button className="w-full h-[57px] border-blue-500 border-2 rounded-full flex justify-center items-center gap-3 font-[Open Sans] text-xl font-bold text-blue-500">
+                    <button className="w-full h-[57px] border-blue-500 hover:bg-slate-200 border-2 rounded-full flex justify-center items-center gap-3 font-[Open Sans] text-xl font-bold text-blue-500">
                         <img src="https://i.ibb.co/PFChkDC/google.png" alt="Logo Google" />
                         Masuk dengan Google
                     </button>
@@ -68,7 +68,7 @@ const FormCreateAccount = ({ input, nextStep, handleInput }) => {
                         <Link to="/" className="text-blue-500">Kebijakan Privasi</Link> kami
                     </p>
                     <p className="font-[Open Sans] font-base font-semibold text-[#505050]">
-                        Sudah terdaftar? <Link to="/login" className="text-blue-500">Masuk</Link>
+                        Sudah terdaftar? <Link to="/login" className="text-blue-500 hover:text-blue-400">Masuk</Link>
                     </p>
                 </div>
             </div>

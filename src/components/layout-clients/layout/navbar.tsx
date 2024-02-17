@@ -36,13 +36,13 @@ const Navbar = ({dataClient, navbar}: INavbarClient) => {
               <>
                 <NavLink to="/login">
                     <button 
-                      className="w-[103px] h-[49.50px] px-[28.50px] py-[13.75px] bg-white rounded-[27.51px] justify-center items-center gap-1 inline-flex">
+                      className="w-[103px] h-[49.50px] px-[28.50px] py-[13.75px] bg-white hover:bg-slate-200 rounded-[27.51px] justify-center items-center gap-1 inline-flex">
                         <div className="text-blue-500 text-sm font-bold font-['Open Sans'] leading-snug">Masuk</div>
                       </button>
                 </NavLink>
                 <NavLink to="/register">
                     <button 
-                      className="w-[101px] h-[49.50px] px-[8.50px] py-[13.75px] border-2 border-white rounded-[27.51px] justify-center items-center gap-1 inline-flex">
+                      className="w-[101px] h-[49.50px] px-[8.50px] py-[13.75px] border-2 border-white hover:bg-blue-400 rounded-[27.51px] justify-center items-center gap-1 inline-flex">
                         <div className="text-white text-sm font-bold font-['Open Sans'] leading-snug">Daftar</div>
                       </button>
                 </NavLink>

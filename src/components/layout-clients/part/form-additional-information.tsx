@@ -45,7 +45,7 @@ const FormAdditionalInformation = ({ input, handleInput, handleRegister }) => {
                                 </div>
                             </div>
                         </div>
-                        <button type="submit" className="h-[57px] rounded-full bg-blue-500 text-white font-bold font-[Open Sans] text-xl">
+                        <button type="submit" className="h-[57px] rounded-full bg-blue-500 hover:bg-blue-400 text-white font-bold font-[Open Sans] text-xl">
                             Daftar
                         </button>
                     </form>

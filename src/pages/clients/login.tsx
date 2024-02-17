@@ -107,12 +107,12 @@ const LoginClient = () => {
                                 <TextInput title='Password' name="password" sizing='lg' onChange={(e)=>setValue('password', e.target.value)} type='password'/>
                                 <a href="/forgot-password" className="font-[Open Sans] text-base font-semibold text-blue-500">Lupa kata sandi?</a>
                             </div>
-                            <button type="submit" disabled={/*!isValid ||*/ loading} className={`h-[57px] rounded-full ${/*!isValid ||*/ loading ? "bg-blue-300" : "bg-blue-500"} text-white font-bold font-[Open Sans] text-xl`}>{loading ? 'Loading ....' : 'Masuk'}</button>
+                            <button type="submit" disabled={/*!isValid ||*/ loading} className={`h-[57px] rounded-full ${/*!isValid ||*/ loading ? "bg-blue-300" : "bg-blue-500"} hover:bg-blue-400 text-white font-bold font-[Open Sans] text-xl`}>{loading ? 'Loading ....' : 'Masuk'}</button>
                         </form>
                     </Form>
                     <div className="flex flex-col items-center gap-8">
                         <hr className="w-full border-1" />
-                        <button className="w-full h-[57px] border-blue-500 border-2 rounded-full flex justify-center items-center gap-3 font-[Open Sans] text-xl font-bold text-blue-500">
+                        <button className="w-full h-[57px] border-blue-500 hover:bg-slate-200 border-2 rounded-full flex justify-center items-center gap-3 font-[Open Sans] text-xl font-bold text-blue-500">
                             <img src="https://i.ibb.co/PFChkDC/google.png" alt="Logo Google" />
                             Masuk dengan Google
                         </button>
@@ -120,7 +120,7 @@ const LoginClient = () => {
                             Dengan masuk akun kamu menyetujui <Link to="/" className="text-blue-500">Syarat & Ketentuan</Link> dan <Link to="/" className="text-blue-500">Kebijakan Privasi</Link> kami
                         </p>
                         <p className="font-[Open Sans] font-base font-semibold text-[#727070]">
-                            Belum punya akun? <Link to="/register" className="text-blue-500">Daftar</Link>
+                            Belum punya akun? <Link to="/register" className="text-blue-500 hover:text-blue-400">Daftar</Link>
                         </p>
                     </div>
                 </div>
