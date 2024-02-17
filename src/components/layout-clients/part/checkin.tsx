@@ -24,6 +24,8 @@ const Checkin = () => {
                 <a
                   href="https://www.bookcabin.com/check-in"
                   className="text-blue-600"
+                  target="_blank" 
+                  rel="noopener noreferrer"
                 >
                   https://www.bookcabin.com/check-in
                 </a>
@@ -66,6 +68,8 @@ const Checkin = () => {
                 <a
                   href="https://www.airasia.com/check-in/id/id"
                   className="text-blue-600"
+                  target="_blank" 
+                  rel="noopener noreferrer"
                 >
                   https://www.airasia.com/check-in/id/id
                 </a>
@@ -105,6 +109,8 @@ const Checkin = () => {
                 <a
                   href="https://book.citilink.co.id/searchwebcheckin.aspx"
                   className="text-blue-600"
+                  target="_blank" 
+                  rel="noopener noreferrer"
                 >
                   https://book.citilink.co.id/searchwebcheckin.aspx
                 </a>
@@ -159,6 +165,8 @@ const Checkin = () => {
                 <a
                   href="https://digital.garuda-indonesia.com/ssci/identification"
                   className="text-blue-600"
+                  target="_blank" 
+                  rel="noopener noreferrer"
                 >
                   https://digital.garuda-indonesia.com/ssci/identification
                 </a>

@@ -22,14 +22,14 @@ const Navbar = ({dataClient, navbar}: INavbarClient) => {
         </div>
 
         <div className="flex flex-row gap-4 items-center">
-          <NavLink to="/">
-              <button className="w-[204px] transition-all hover:bg-amber-400 h-[51.50px] px-[28.50px] py-[13.75px] bg-amber-500 rounded-[27.51px] justify-center items-center gap-1 inline-flex">
-                  <div className="text-xl mr-2 text-white">
+          <a href="https://api.whatsapp.com/send?phone=nomor-telepon-anda" target="_blank" rel="noopener noreferrer">
+            <button className="w-[204px] transition-all hover:bg-amber-400 h-[51.50px] px-[28.50px] py-[13.75px] bg-amber-500 rounded-[27.51px] justify-center items-center gap-1 inline-flex">
+                <div className="text-xl mr-2 text-white">
                     <TbPhone />
-                  </div>
-                  <div className="text-white text-sm font-bold font-['Open Sans'] leading-snug">Customer Service</div>
-              </button>
-          </NavLink>
+                </div>
+                <div className="text-white text-sm font-bold font-['Open Sans'] leading-snug">Customer Service</div>
+            </button>
+          </a>
           
           {
             !dataClient && (
