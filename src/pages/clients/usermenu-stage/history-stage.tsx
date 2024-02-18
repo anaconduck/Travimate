@@ -107,7 +107,7 @@ const HistoryStage = ({ setRiwayat, riwayat }: IHistoryStage) => {
                 Terminal 2E{" "}
               </p>
             </div>
-            <button className="w-1/3 mb-10">
+            <button className="w-1/3 mb-10" onClick={toggleDetails}>
               <div className="rounded-full px-12 py-4 bg-green-600 font-bold text-lg text-white">
                 E-ticket diterbitkan
               </div>
@@ -131,7 +131,7 @@ const HistoryStage = ({ setRiwayat, riwayat }: IHistoryStage) => {
                   Terminal 2E{" "}
                 </p>
               </div>
-              <button className="w-1/3 mb-10">
+              <button className="w-1/3 mb-10" onClick={toggleDetails}>
                 <div className="rounded-full px-12 py-4 bg-green-600 font-bold text-lg text-white">
                   E-ticket diterbitkan
                 </div>

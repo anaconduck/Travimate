@@ -82,7 +82,7 @@ const PaymentPageView = () => {
 
   return (
     <div className="">
-      <div className="flex justify-between mt-32 px-36 pb-4">
+      <div className="flex justify-between mt-32 px-36 pb-6">
         <PilihMetode step={step} changeStep={(e: number) => setStep(e)} />
       </div>
       <Form {...methods}>
@@ -96,7 +96,6 @@ const PaymentPageView = () => {
         key: 'no_card',
         values: '01'
       })}>
-        Test
       </button>
     </div>
   );
