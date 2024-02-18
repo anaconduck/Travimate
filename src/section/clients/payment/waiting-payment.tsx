@@ -42,7 +42,7 @@ const WaitingPayment = () => {
           <div>Bali (DPS)</div>
         </div>
         <div className="flex justify-center items-center text-blue-600 font-bold my-5 text-lg">
-          <button>Detail</button>
+         
         </div>
       </div>
       <div className="border-t-2 border-slate-200 pt-4">
@@ -72,12 +72,12 @@ const WaitingPayment = () => {
 
   return (
     <div className="bg-blue-100 min-h-screen w-full font-sans">
-      <div className="max-w-7xl mx-auto pt-10">
+      <div className="max-w-[90%] mx-auto pt-32">
         <div className="grid grid-cols-3 gap-8">
-          <div className="w-full bg-white col-span-2 p-8 rounded-xl h-80">
+          <div className="w-full bg-white col-span-2 p-16 rounded-xl">
             {renderCardLeft}
           </div>
-          <div className="w-full bg-white rounded-xl p-8">
+          <div className="w-full bg-white rounded-xl p-16">
             {renderCardRight}
           </div>
         </div>
