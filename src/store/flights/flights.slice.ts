@@ -1,7 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 import type { PayloadAction } from '@reduxjs/toolkit';
 
-interface FlightState {
+export interface FlightState {
   data?: any;
   query?: any;
   orderDetail? : any;
@@ -41,8 +41,9 @@ export const flightSlice = createSlice({
 
 export const { orderData, checkoutData, resetDataFlight } = flightSlice.actions;
 
-export const selectClientKey = (state: { flight: FlightState }) => state.flight.ClientKey;
-export const selectAccessToken = (state: { flight: FlightState }) => state.flight.accessToken;
+export const selectDataFlighState = (state: { flight: FlightState }) => state.flight.data;
+export const selectQueryFlighState = (state: { flight: FlightState }) => state.flight.query;
+export const selectCheckoutData = (state: { flight: FlightState }) => state.flight.orderDetail;
 
 const flightReducer = flightSlice.reducer;
 export default flightReducer;

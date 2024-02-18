@@ -45,7 +45,7 @@ const LoginClient = () => {
     
     const values = watch();
 
-    console.log(values.name, values.password)
+    // console.log(values.name, values.password)
 
     const onSubmit = handleSubmit(async (data) => {
         setLoading(true)

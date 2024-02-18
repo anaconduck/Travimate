@@ -8,9 +8,8 @@ interface INavbarClient {
   navbar?: boolean;
 }
 
-
 const Navbar = ({dataClient, navbar}: INavbarClient) => {
-
+  // console.log(dataClient?.pp)
   return (
     <div className="navbar flex flex-row py-1 justify-between items-center min-h-max px-12 md:px-32">
         <div className="flex justify-around md:justify-between">
@@ -63,7 +62,7 @@ const Navbar = ({dataClient, navbar}: INavbarClient) => {
                 <NavLink to="/profile" className="flex items-center">
                   <div className="text-xl text-white font-semibold">Halo, {dataClient?.username}</div>
                   <div className="bg-blue-100 hover:bg-blue-400 text-blue-600 hover:text-blue-700 w-12 h-12 ml-3 rounded-full flex items-end">
-                    <img src={dataClient?.pp} alt="image client" className="w-full h-full" />
+                    <img src={dataClient?.pp} alt="image client" className="w-[100%] h-[100%] object-cover" />
                     {/* <TbUserFilled className="w-8 h-8" /> */}
                   </div>
                 </NavLink>

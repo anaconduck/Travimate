@@ -49,8 +49,6 @@ const InputField = () => {
     is_round_trip: switch1,
   });
 
-  console.log(input)
-
   const handleInput = (event: React.ChangeEvent<HTMLInputElement>) => {
       let value = event.target.value;
       let name = event.target.name;
@@ -104,7 +102,7 @@ const InputField = () => {
   
   const values = watch();
 
-  // console.log(values.departure)
+  // console.log(input.departure)
 
   const onSubmitSearch = handleSubmit(async (data) => {
       setLoading(true)
@@ -112,7 +110,7 @@ const InputField = () => {
       if(switch1){
         apiUrl = `/flight/search?dep=${input.departure}&arr=${input.destination}&dateDep=${input.departure_date}&dateArr=${input.destinations_date}&flightClass=${input.select_class}&isAroundTrip=${switch1}`
       } else {
-        apiUrl = `/flight/search?dep=${input.departure}&dateDep=${input.departure_date}&flightClass=${input.select_class}&isAroundTrip=${switch1}`
+        apiUrl = `/flight/search?dep=${input.departure}&arr=${input.destination}&dateDep=${input.departure_date}&flightClass=${input.select_class}&isAroundTrip=${switch1}`
       }
       router.push(apiUrl)  
   })
@@ -125,8 +123,7 @@ const InputField = () => {
           <div className="flex justify-center ">
             <div className="form-input py-6 flex w-[95%] shadow rounded-full px-12 relative translate-y-[0%] md:translate-y-[-150%] lg:translate-y-[-180%] xl:translate-y-[-230%] bg-white">
               <div className="flex w-full items-center gap-3">
-
-                <div className="flex w-[30%] gap-4 items-center">
+                <div className="flex w-[50%] gap-4 items-center">
                   <div className="w-full mb-6 md:mb-0">
                     <div className="relative inputText">
                       <label className="pb-1 px-2">Dari</label>
@@ -140,30 +137,23 @@ const InputField = () => {
                       />
                     </div>
                   </div>
+                    <div className="bg-amber-500 text-white font-bold rounded-full w-32 h-8 flex items-center justify-center">
+                      <FaArrowRightArrowLeft />
+                    </div>
 
-                  {
-                    switch1 && (
-                      <>
-                        <div className="bg-amber-500 text-white font-bold rounded-full w-32 h-8 flex items-center justify-center">
-                          <FaArrowRightArrowLeft />
-                        </div>
-
-                        <div className="w-full mb-6 md:mb-0">
-                          <div className="relative inputText">
-                            <label className="pb-1 px-2">Ke</label>
-                            <input
-                              type="text"
-                              id="destination"
-                              name='destination'
-                              onChange={handleInput}
-                              className="form-control block appearance-none w-full text-gray-700 py-3 px-2 pr-6 rounded-[10px] leading-tight focus:outline-none focus:bg-white border-none"
-                              placeholder="Negara, Kota, atau Bandara"
-                            />
-                          </div>
-                        </div>
-                      </>
-                    )
-                  }
+                    <div className="w-full mb-6 md:mb-0">
+                      <div className="relative inputText">
+                        <label className="pb-1 px-2">Ke</label>
+                        <input
+                          type="text"
+                          id="destination"
+                          name='destination'
+                          onChange={handleInput}
+                          className="form-control block appearance-none w-full text-gray-700 py-3 px-2 pr-6 rounded-[10px] leading-tight focus:outline-none focus:bg-white border-none"
+                          placeholder="Negara, Kota, atau Bandara"
+                        />
+                      </div>
+                    </div>
                 </div>
 
                 <div className="flex w-[67%] gap-4 items-center">

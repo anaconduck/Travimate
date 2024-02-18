@@ -4,26 +4,19 @@ import Left from "../../../assets/LeftArrow.svg";
 import Right from "../../../assets/RightArrow.svg";
 
 interface IDateSlider {
-  setDateSelected: any
+  setDateSelected: any;
+  dates: any;
+  index: number;
 }
 
-const DateSlider = ({setDateSelected}: IDateSlider) => {
-  const [activeIndex, setActiveIndex] = useState(0);
+const DateSlider = ({setDateSelected, dates, index}: IDateSlider) => {
+  console.log(index)
+  const [activeIndex, setActiveIndex] = useState(index);
 
-  const generateDates = () => {
-    const startDate = new Date("2024-02-01");
-    const endDate = new Date("2024-02-04");
-    const dates = [];
-    for (let date = startDate; date <= endDate; date.setDate(date.getDate() + 1)) {
-      dates.push({
-        date: date.toISOString().split("T")[0], // Format date to YYYY-MM-DD
-        day: date.toLocaleDateString("id-ID", { weekday: "long" }), // Get full weekday name in Indonesian
-      });
-    }
-    return dates;
-  };
+  useEffect(()=>{
+    setActiveIndex(index)
+  },[index])
 
-  const dates = generateDates();
   const tabsBoxRef = useRef(null); 
 
   const handleIcons = () => {
@@ -36,11 +29,14 @@ const DateSlider = ({setDateSelected}: IDateSlider) => {
     arrowIcons[1].parentElement.style.display =
       maxScrollableWidth - tabsBox.scrollLeft <= 1 ? "none" : "flex";
   };
+
   const selectedDate = dates[activeIndex];
+
+  console.log(selectedDate, activeIndex, index)
 
   useEffect(()=>{
     setDateSelected(selectedDate)
-  },[])
+  },[index])
 
   const handleTabClick = (index) => {
     setActiveIndex(index);
@@ -74,7 +70,7 @@ const DateSlider = ({setDateSelected}: IDateSlider) => {
   };
 
   return (
-    <div className="pt-20 pb-6 px-12">
+    <div className="pt-10 pb-6 px-12">
       <div className="wrapper">
         <div className="icon" onClick={() => handleArrowClick("left")}>
           <img src={Left} alt="Left Arrow" />
