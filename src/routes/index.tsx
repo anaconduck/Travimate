@@ -26,8 +26,8 @@ import UserMenuPage from "../pages/clients/usermenu";
           <Route path="checkin" element={<UserMenuPage/>} />
           <Route path="notification" element={<UserMenuPage/>} />
           <Route path="logout" element={<UserMenuPage/>} />
-          <Route path="payment" element={<Payment/>} />
           <Route path="flight" element={<PrivateRoute />}>
+            <Route path="payment" element={<Payment/>} />
             <Route path="order-details" element={<OrderDetailsPage/>} />
           </Route>
         </Route>

@@ -3,7 +3,7 @@ import * as Yup from 'yup';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { Controller, useForm } from 'react-hook-form';
 import { FormProvider as Form, UseFormReturn } from 'react-hook-form';
-
+import { useDispatch } from 'react-redux';
 import { ArrowsLeftRight } from '@phosphor-icons/react'
 import { useSelector } from "react-redux";
 import { Helmet } from 'react-helmet'
@@ -11,24 +11,60 @@ import { Datepicker, Label, Radio, TextInput, ToggleSwitch } from 'flowbite-reac
 import ItemCardFlightOrdersDetails from '../../components/layout-clients/part/item-card-flight'
 import LayoutClient from '../../components/layout-clients/layout'
 import { CounterState } from '../../store/clients/client.slice';
-import { FlightState, selectDataFlighState, selectQueryFlighState } from '../../store/flights/flights.slice';
+import { FlightState, checkoutData, selectDataFlighState, selectQueryFlighState } from '../../store/flights/flights.slice';
 import { FlightData } from '../../types';
 import { formatterCurrency } from '../../utils';
+import { useRouter } from '../../routes/hooks';
 
 const OrderDetailsPage = () => {
+
+    const router = useRouter()
+    const dispatch = useDispatch()
 
     const dataClient = useSelector(
         (state: { client: CounterState }) => state?.client?.profileClient
     );
-
     const dataDetailFlight = useSelector(selectDataFlighState)
     const dataQueryFlight = useSelector(selectQueryFlighState)
-
     const totalFare = dataDetailFlight?.flights?.map((item:any)=>item?.baseFare?.adultBaseFare)?.reduce((a:any, b:any)=>a + b, 0)
 
-    console.log(dataClient)
-
     const [sameWithPemesan, setSameWithPemesan] = useState(false);
+
+    const [traveler, setTraveler] = useState([{
+        sapaan: '',
+        name: '',
+        dob: ''
+    }])
+
+    // console.log(traveler)
+
+    function getCurrentDate(date:string) {
+        const currentDate = new Date(date);
+        const year = currentDate.getFullYear();
+        const month = (currentDate.getMonth() + 1).toString().padStart(2, '0');
+        const day = currentDate.getDate().toString().padStart(2, '0');
+        return `${year}-${month}-${day}`;
+    }
+
+    useEffect(()=>{
+        if(sameWithPemesan){
+            setTraveler([
+                {
+                    sapaan: dataClient?.greeting,
+                    name: dataClient?.username,
+                    dob: getCurrentDate(dataClient?.dob)
+                }
+            ])
+        } else {
+            setTraveler([
+                {
+                    sapaan: '',
+                    name: '',
+                    dob: ''
+                }
+            ])
+        }
+    },[sameWithPemesan])
 
     const NewBlogSchema = Yup.object().shape({
         title: Yup.string().nullable(),
@@ -73,8 +109,6 @@ const OrderDetailsPage = () => {
         resolver: yupResolver(NewBlogSchema),
         defaultValues,
     });
-
-    
     
     const {
         reset,
@@ -91,7 +125,23 @@ const OrderDetailsPage = () => {
         if (dataClient) {
           reset(defaultValues);
         }
-      }, [dataClient, defaultValues, reset]);
+    }, [dataClient, defaultValues, reset]);
+
+    const handleToPayment = () => {
+        const payload = {
+            orderDetail : {
+                customer: {
+                    sapaan: dataClient?.greeting,
+                    name: dataClient?.username,
+                    dob: getCurrentDate(dataClient?.dob)
+                },
+                travalers: traveler
+            }
+        }
+        dispatch(checkoutData(payload))
+        router.push('/flight/payment')
+    }
+
 
     const renderDetailPemesan = (
         <>
@@ -105,15 +155,15 @@ const OrderDetailsPage = () => {
                     <h6 className="text-neutral-600 text-md font-semibold font-['Open Sans'] leading-7">Sapaan</h6>
                     <fieldset className="flex max-w-md flex-row gap-4 mt-2">
                         <div className="flex items-center gap-2">
-                            <Radio id="tuan" name="countries" value="tuan" checked={dataClient?.greeting === 'tuan'} />
+                            <Radio id="tuan" name="sapaan" value="tuan" checked={dataClient?.greeting === 'tuan'} />
                             <Label htmlFor="tuan">Tuan</Label>
                         </div>
                         <div className="flex items-center gap-2">
-                            <Radio id="Nyonya" name="countries" value="Nyonya" checked={dataClient?.greeting === 'Nyonya'} />
+                            <Radio id="Nyonya" name="sapaan" value="nyonya" checked={dataClient?.greeting === 'nyonya'} />
                             <Label htmlFor="Nyonya">Nyonya</Label>
                         </div>
                         <div className="flex items-center gap-2">
-                            <Radio id="spain" name="countries" value="Nona" checked={dataClient?.greeting === 'Nona'} />
+                            <Radio id="spain" name="sapaan" value="nona" checked={dataClient?.greeting === 'nona'} />
                             <Label htmlFor="Nona">Nona</Label>
                         </div>
                     </fieldset>
@@ -152,15 +202,15 @@ const OrderDetailsPage = () => {
                     <h6 className="text-neutral-600 text-md font-semibold font-['Open Sans'] leading-7">Sapaan</h6>
                     <fieldset className="flex max-w-md flex-row gap-4 mt-2">
                         <div className="flex items-center gap-2">
-                            <Radio id="sapaan" name="sapaan" value="tuan" defaultChecked />
+                            <Radio id="tuan" name="countries" value="tuan" checked={traveler[0].sapaan === 'tuan'} />
                             <Label htmlFor="tuan">Tuan</Label>
                         </div>
                         <div className="flex items-center gap-2">
-                            <Radio id="sapaan" name="sapaan" value="Nyonya" />
+                            <Radio id="Nyonya" name="countries" value="nyonya" checked={traveler[0].sapaan === 'nyonya'} />
                             <Label htmlFor="Nyonya">Nyonya</Label>
                         </div>
                         <div className="flex items-center gap-2">
-                            <Radio id="sapaan" name="sapaan" value="Nona" />
+                            <Radio id="spain" name="countries" value="nona" checked={traveler[0].sapaan === 'nona'} />
                             <Label htmlFor="Nona">Nona</Label>
                         </div>
                     </fieldset>
@@ -168,13 +218,13 @@ const OrderDetailsPage = () => {
 
                 <div className='nama_lengkap flex flex-col gap-2'>
                     <h6 className="text-neutral-600 text-md font-semibold font-['Open Sans'] leading-7">Nama Lengkap</h6>
-                    <TextInput title='Nama Lengkap' value='' type='text'/>
+                    <TextInput title='Nama Lengkap' value={traveler[0].name} type='text'/>
                     <p className='text-sm text-gray-300'>Seperti di KTP, Paspor, dan SIM</p>
                 </div>
 
                 <div className='tanggal_lagir flex flex-col gap-2'>
                     <h6 className="text-neutral-600 text-md font-semibold font-['Open Sans'] leading-7">Tanggal Lahir</h6>
-                    <Datepicker className='w-full' title="Tanggal Lahir" />
+                    <Datepicker className='w-full' value={traveler[0].dob} title="Tanggal Lahir" />
                 </div>
 
             </div>
@@ -273,7 +323,7 @@ const OrderDetailsPage = () => {
                                 <p className='text-lg text-gray-700 font-bold'>{formatterCurrency.format(totalFare)?.replace(/,00$/, '')}</p>
                             </div>
                         </div>
-                        <button className='my-3 rounded-full w-full bg-[#F1A025] py-4 font-bold text-xl text-white'>
+                        <button onClick={()=>handleToPayment()} className='my-3 rounded-full w-full bg-[#F1A025] py-4 font-bold text-xl text-white'>
                             Lanjut Pembayaran
                         </button>
                     </div>
