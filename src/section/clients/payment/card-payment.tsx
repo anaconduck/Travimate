@@ -130,7 +130,7 @@ const CardPayment = ({onSubmit, values, handleSetValueInput}:ICardPayment) => {
                 02-02-2024 - 04-02-2024
               </div>
               <div className="flex justify-start items-center gap-2 mt-2 text-lg text-slate-600">
-                <div>CGK</div>
+                <div>{item?.departure_airport?.city}</div>
                 <div>
                   <svg
                     width="24"
@@ -145,7 +145,7 @@ const CardPayment = ({onSubmit, values, handleSetValueInput}:ICardPayment) => {
                     />
                   </svg>
                 </div>
-                <div>DPS</div>
+                <div>{item?.arrival_airport?.city}</div>
               </div>
               <div className="flex justify-center items-center text-blue-600 font-bold my-5 text-lg">
                 
