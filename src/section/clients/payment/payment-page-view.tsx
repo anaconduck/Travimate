@@ -5,8 +5,13 @@ import WaitingPayment from "./waiting-payment";
 import PaymentAccepted from "../payment-accepted";
 import PilihMetode from "./payment-method";
 import { useForm } from 'react-hook-form';
+import { useSelector } from 'react-redux'
 import { yupResolver } from '@hookform/resolvers/yup';
 import { FormProvider as Form, UseFormReturn } from 'react-hook-form';
+import { CounterState, selectAccessToken } from '../../../store/clients/client.slice';
+import { selectCheckoutData, selectDataFlighState, selectQueryFlighState } from '../../../store/flights/flights.slice';
+import travimatev2 from '../../../api/tavimatev2';
+
 
 interface IPaymentData {
   no_card: string;
@@ -23,6 +28,15 @@ export type PaymentDataKey = keyof IPaymentData;
 const PaymentPageView = () => {
   const [step, setStep] = useState<number>(1);
 
+  const dataClient = useSelector((state: { client: CounterState }) => state?.client?.profileClient)
+  const dataDetailFlight = useSelector(selectDataFlighState)
+  const dataQueryFlight = useSelector(selectQueryFlighState)
+  const dataCheckoutFlight = useSelector(selectCheckoutData)
+  const accessToken = sessionStorage.getItem('at')
+
+  const totalFare = dataDetailFlight?.flights?.map((item:any)=>item?.baseFare?.adultBaseFare)?.reduce((a:any, b:any)=>a + b, 0)
+
+  console.log(dataCheckoutFlight)
 
   const PaymentSchema = Yup.object().shape({
       no_card: Yup.string().required('Number card is required'),
@@ -72,9 +86,45 @@ const PaymentPageView = () => {
 
   const onSubmit = handleSubmit(async (data) => {
     setStep(2)
-    alert('Hahah')
+    
+    const payloadForm = {
+      bookedBy: "fajar",
+      bookedMail: "fa314270@gmail.com",
+      flightDataID: "7295cebf-047e-4904-974f-f42e5135b248",
+      flightID: ["8767bed7-69ec-48fd-9d38-54b5bb7764d1"],
+      passengerList: [
+        {
+          "greeting": "Mrs.",
+          "firstName": "Syafa",
+          "lastName": "Annisa",
+          "type": "adult"
+        },
+        {
+          "greeting": "Miss",
+          "firstName": "Sheilla",
+          "lastName": "Amira",
+          "type": "child"
+        },
+            {
+          "greeting": "Miss",
+          "firstName": "Syahnaz",
+          "lastName": "Olivia",
+          "type": "child"
+        }
+      ]
+    }
+
     try {
-      
+        travimatev2.post(``, {
+            headers: {
+                Authorization: `Bearer ${accessToken}`
+            }
+        }).then(()=>{
+
+        }).catch((error)=>{
+          console.log(error)
+        })
+
     } catch (error) {
       
     }

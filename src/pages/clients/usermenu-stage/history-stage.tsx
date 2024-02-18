@@ -16,13 +16,11 @@ interface IHistoryStage {
 const HistoryStage = ({ setRiwayat, riwayat }: IHistoryStage) => {
   const [showDetails, setShowDetails] = useState(false);
 
-  const renderDetails = (
-    <>
-      <OneWay />
-      <RoundTripOnePerson />
-      <RoundTripMorePerson />
-    </>
-  );
+  const renderDetails = [
+    <OneWay key="oneWay" />,
+    <RoundTripOnePerson key="roundTripOnePerson" />,
+    <RoundTripMorePerson key="roundTripMorePerson" />
+  ];
 
   const toggleDetails = () => {
     setShowDetails(!showDetails);
@@ -92,15 +90,40 @@ const HistoryStage = ({ setRiwayat, riwayat }: IHistoryStage) => {
 
         {/* Ini riwayat */}
         {riwayat === "etiket" && (
-          <div>
+        // Blok Satu
+        <div>
+          <div className="flex flex-col mb-2 gap-2">
+            <div className="flex flex-row gap-2 w-full items-center font-semibold text-xl">
+              <p>Jakarta (CGK) </p>
+              <GoArrowSwitch className="w-6 h-6" />
+              <p>Bali (DPS)</p>
+            </div>
+            <p className="text-xl font-normal">
+              Senin, 7 Juli 2024 * 07.00-08.35
+            </p>
+            <p className="font-normal text-xl">
+              Lion Air * Bandara Internasional Soekarno-Hatta, Terminal,
+              Terminal 2E{" "}
+            </p>
+          </div>
+          <button className="w-1/3 mb-10" onClick={toggleDetails}>
+            <div className="rounded-full px-12 py-4 bg-green-600 font-bold text-lg text-white">
+              E-ticket diterbitkan
+            </div>
+          </button>
+
+          <hr />
+
+          {/* Blok kedua */}
+          <div className="mt-10">
             <div className="flex flex-col mb-2 gap-2">
               <div className="flex flex-row gap-2 w-full items-center font-semibold text-xl">
-                <p>Jakarta (CGK) </p>
-                <GoArrowSwitch className="w-6 h-6" />
                 <p>Bali (DPS)</p>
+                <GoArrowSwitch className="w-6 h-6" />
+                <p>Jakarta (CGK) </p>
               </div>
               <p className="text-xl font-normal">
-                Senin, 7 Juli 2024 * 07.00-08.35
+                Selasa, 8 Juli 2024 * 07.00-08.35
               </p>
               <p className="font-normal text-xl">
                 Lion Air * Bandara Internasional Soekarno-Hatta, Terminal,
@@ -112,58 +135,34 @@ const HistoryStage = ({ setRiwayat, riwayat }: IHistoryStage) => {
                 E-ticket diterbitkan
               </div>
             </button>
-
-            <hr />
-
-            {/* Blok kedua */}
-            <div className="mt-10">
-              <div className="flex flex-col mb-2 gap-2">
-                <div className="flex flex-row gap-2 w-full items-center font-semibold text-xl">
-                  <p>Bali (DPS)</p>
-                  <GoArrowSwitch className="w-6 h-6" />
-                  <p>Jakarta (CGK) </p>
-                </div>
-                <p className="text-xl font-normal">
-                  Selasa, 8 Juli 2024 * 07.00-08.35
-                </p>
-                <p className="font-normal text-xl">
-                  Lion Air * Bandara Internasional Soekarno-Hatta, Terminal,
-                  Terminal 2E{" "}
-                </p>
-              </div>
-              <button className="w-1/3 mb-10" onClick={toggleDetails}>
-                <div className="rounded-full px-12 py-4 bg-green-600 font-bold text-lg text-white">
-                  E-ticket diterbitkan
-                </div>
-              </button>
-            </div>
-
-            <hr />
-
-            {/* Blok ketiga */}
-            <div className="mt-10">
-              <div className="flex flex-col mb-2 gap-2">
-                <div className="flex flex-row gap-2 w-full items-center font-semibold text-xl">
-                  <p>Jakarta (CGK) </p>
-                  <GoArrowSwitch className="w-6 h-6" />
-                  <p>Bali (DPS)</p>
-                </div>
-                <p className="text-xl font-normal">
-                  Rabu, 9 Juli 2024 * 07.00-08.35
-                </p>
-                <p className="font-normal text-xl">
-                  Lion Air * Bandara Internasional Soekarno-Hatta, Terminal,
-                  Terminal 2E{" "}
-                </p>
-              </div>
-              <button className="w-1/3" onClick={toggleDetails}>
-                <div className="rounded-full px-12 py-4 bg-green-600 font-bold text-lg text-white">
-                  E-ticket diterbitkan
-                </div>
-              </button>
-            </div>
           </div>
-        )}
+
+          <hr />
+
+          {/* Blok ketiga */}
+          <div className="mt-10">
+            <div className="flex flex-col mb-2 gap-2">
+              <div className="flex flex-row gap-2 w-full items-center font-semibold text-xl">
+                <p>Jakarta (CGK) </p>
+                <GoArrowSwitch className="w-6 h-6" />
+                <p>Bali (DPS)</p>
+              </div>
+              <p className="text-xl font-normal">
+                Rabu, 9 Juli 2024 * 07.00-08.35
+              </p>
+              <p className="font-normal text-xl">
+                Lion Air * Bandara Internasional Soekarno-Hatta, Terminal,
+                Terminal 2E{" "}
+              </p>
+            </div>
+            <button className="w-1/3" onClick={toggleDetails}>
+              <div className="rounded-full px-12 py-4 bg-green-600 font-bold text-lg text-white">
+                E-ticket diterbitkan
+              </div>
+            </button>
+          </div>
+        </div>
+      )}
 
         {/* ini yg selesai */}
         {riwayat === "selesai" && (

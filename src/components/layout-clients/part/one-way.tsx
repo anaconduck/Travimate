@@ -31,7 +31,7 @@ const OneWay = () => {
       </div>
 
       {/* Booking */}
-      <div className="bg-white w-full rounded-[27.51px] py-10 mt-[-30px] mb-10">
+      <div className="bg-white w-full rounded-[27.51px] py-10 mt-[-30px]">
         <div className="w-full p-8 font-sans text-[#757575]">
           <p className="text-2xl font-bold leading-10">Kode booking</p>
           <div className="flex gap-2 items-center">

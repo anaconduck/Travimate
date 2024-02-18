@@ -6,7 +6,7 @@ import { formatDate } from "../../../utils"
 const ItemCardFlightOrdersDetails = ({data, index}: {data: FlightData, index: number}) => {
     const dof = formatDate(data?.dof?.join('-'))
 
-    console.log(dof)
+    // console.log(dof)
 
     return (
         <div className="mt-3">

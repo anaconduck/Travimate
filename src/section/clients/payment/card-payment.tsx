@@ -9,7 +9,7 @@ interface ICardPayment {
   handlePayment?: (e: any) => void;
   onSubmit: any;
   handleSetValueInput: ({key, values}: {key: PaymentDataKey, values: any}) => void;
-  values: any
+  values: any;
 }
 
 const CardPayment = ({onSubmit, values, handleSetValueInput}:ICardPayment) => {

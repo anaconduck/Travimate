@@ -28,14 +28,48 @@ const OrderDetailsPage = () => {
     const dataQueryFlight = useSelector(selectQueryFlighState)
     const totalFare = dataDetailFlight?.flights?.map((item:any)=>item?.baseFare?.adultBaseFare)?.reduce((a:any, b:any)=>a + b, 0)
 
+    const adultSUM:number = 3
+
     const [sameWithPemesan, setSameWithPemesan] = useState(false);
 
-    const [traveler, setTraveler] = useState([{
+    const defaultTraveler = {
         sapaan: '',
         name: '',
-        dob: ''
-    }])
+        dob: '',
+        type: ''
+    };
 
+    const [traveler, setTraveler] = useState(Array.from({ length: adultSUM }, () => ({
+        sapaan: '',
+        name: '',
+        dob: '',
+        type: ''
+    })));
+
+    const handleSapaanChange = (index, newValue) => {
+        setTraveler(prevTraveler => {
+            const updatedTraveler = [...prevTraveler];
+            updatedTraveler[index] = { ...updatedTraveler[index], sapaan: newValue };
+            return updatedTraveler;
+        });
+    };
+    
+    const handleNameChange = (index, newValue) => {
+        setTraveler(prevTraveler => {
+            const updatedTraveler = [...prevTraveler];
+            updatedTraveler[index] = { ...updatedTraveler[index], name: newValue };
+            return updatedTraveler;
+        });
+    };
+    
+    const handleDOBChange = (index, newValue) => {
+        setTraveler(prevTraveler => {
+            const updatedTraveler = [...prevTraveler];
+            updatedTraveler[index] = { ...updatedTraveler[index], dob: newValue };
+            return updatedTraveler;
+        });
+    };
+    
     // console.log(traveler)
 
     function getCurrentDate(date:string) {
@@ -52,7 +86,8 @@ const OrderDetailsPage = () => {
                 {
                     sapaan: dataClient?.greeting,
                     name: dataClient?.username,
-                    dob: getCurrentDate(dataClient?.dob)
+                    dob: getCurrentDate(dataClient?.dob),
+                    type: 'adult'
                 }
             ])
         } else {
@@ -60,7 +95,8 @@ const OrderDetailsPage = () => {
                 {
                     sapaan: '',
                     name: '',
-                    dob: ''
+                    dob: '',
+                    type: 'adult'
                 }
             ])
         }
@@ -190,46 +226,49 @@ const OrderDetailsPage = () => {
         </>
     )
 
-    const renderDetailPenumpangDewasa = (
-        <>
-            <div className='bg-white rounded-[27.51px] p-8 w-full flex flex-col gap-4 mt-4 pb-10'>
-                <div className='flex flex-row justify-between'>
-                    <h1>Penumpang 1 (Dewasa)</h1>
-                    <ToggleSwitch checked={sameWithPemesan} label="Sama dengan pemesan" onChange={setSameWithPemesan} />
-                </div>
-                {/* Section Sapaan */}
-                <div className='sapaan'>
-                    <h6 className="text-neutral-600 text-md font-semibold font-['Open Sans'] leading-7">Sapaan</h6>
-                    <fieldset className="flex max-w-md flex-row gap-4 mt-2">
-                        <div className="flex items-center gap-2">
-                            <Radio id="tuan" name="countries" value="tuan" checked={traveler[0].sapaan === 'tuan'} />
-                            <Label htmlFor="tuan">Tuan</Label>
-                        </div>
-                        <div className="flex items-center gap-2">
-                            <Radio id="Nyonya" name="countries" value="nyonya" checked={traveler[0].sapaan === 'nyonya'} />
-                            <Label htmlFor="Nyonya">Nyonya</Label>
-                        </div>
-                        <div className="flex items-center gap-2">
-                            <Radio id="spain" name="countries" value="nona" checked={traveler[0].sapaan === 'nona'} />
-                            <Label htmlFor="Nona">Nona</Label>
-                        </div>
-                    </fieldset>
-                </div>
-
-                <div className='nama_lengkap flex flex-col gap-2'>
-                    <h6 className="text-neutral-600 text-md font-semibold font-['Open Sans'] leading-7">Nama Lengkap</h6>
-                    <TextInput title='Nama Lengkap' value={traveler[0].name} type='text'/>
-                    <p className='text-sm text-gray-300'>Seperti di KTP, Paspor, dan SIM</p>
-                </div>
-
-                <div className='tanggal_lagir flex flex-col gap-2'>
-                    <h6 className="text-neutral-600 text-md font-semibold font-['Open Sans'] leading-7">Tanggal Lahir</h6>
-                    <Datepicker className='w-full' value={traveler[0].dob} title="Tanggal Lahir" />
-                </div>
-
+    const renderDetailPenumpangDewasa = Array(adultSUM).fill(defaultTraveler).map((_, index) => (
+        <div key={index} className='bg-white rounded-[27.51px] p-8 w-full flex flex-col gap-4 mt-4 pb-10'>
+            <div className='flex flex-row justify-between'>
+                <h1>Penumpang {index + 1} (Dewasa)</h1>
+                {
+                    index === 0 && (
+                        <ToggleSwitch checked={sameWithPemesan} label="Sama dengan pemesan" onChange={setSameWithPemesan} />
+                    )
+                }
             </div>
-        </>
-    )
+            {/* Section Sapaan */}
+            <div className='sapaan'>
+                <h6 className="text-neutral-600 text-md font-semibold font-['Open Sans'] leading-7">Sapaan</h6>
+                <fieldset className="flex max-w-md flex-row gap-4 mt-2">
+                    <div className="flex items-center gap-2">
+                        <Radio id={`tuan${index}`} name={`countries${index}`} value="tuan" checked={traveler[index]?.sapaan === 'tuan'} onChange={(e) => handleSapaanChange(index, e.target.value)} />
+                        <Label htmlFor={`tuan${index}`}>Tuan</Label>
+                    </div>
+                    <div className="flex items-center gap-2">
+                        <Radio id={`nyonya${index}`} name={`countries${index}`} value="nyonya" checked={traveler[index]?.sapaan === 'nyonya'} onChange={(e) => handleSapaanChange(index, e.target.value)} />
+                        <Label htmlFor={`nyonya${index}`}>Nyonya</Label>
+                    </div>
+                    <div className="flex items-center gap-2">
+                        <Radio id={`nona${index}`} name={`countries${index}`} value="nona" checked={traveler[index]?.sapaan === 'nona'} onChange={(e) => handleSapaanChange(index, e.target.value)} />
+                        <Label htmlFor={`nona${index}`}>Nona</Label>
+                    </div>
+                </fieldset>
+            </div>
+    
+            <div className='nama_lengkap flex flex-col gap-2'>
+                <h6 className="text-neutral-600 text-md font-semibold font-['Open Sans'] leading-7">Nama Lengkap</h6>
+                <TextInput title='Nama Lengkap' value={traveler[index]?.name} type='text' onChange={(e) => handleNameChange(index, e.target.value)} />
+                <p className='text-sm text-gray-300'>Seperti di KTP, Paspor, dan SIM</p>
+            </div>
+    
+            <div className='tanggal_lagir flex flex-col gap-2'>
+                <h6 className="text-neutral-600 text-md font-semibold font-['Open Sans'] leading-7">Tanggal Lahir</h6>
+                <Datepicker className='w-full' value={traveler[index]?.dob} title="Tanggal Lahir" onChange={(value) => handleDOBChange(index, value)} />
+            </div>
+        </div>
+    ));
+    
+    
 
     const renderDetailPenumpangAnak = (
         <>
