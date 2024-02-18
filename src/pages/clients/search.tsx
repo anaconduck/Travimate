@@ -73,14 +73,14 @@ const SearchPage = () => {
   },[searchParamsState, flight])
 
   useEffect(()=>{
-    if(searchParamsState.isAroundTrip && (flight?.length === 2)){
+    if(searchParamsState.isAroundTrip && (flight?.length === 2) && !isLoading){
       setTimeout(() => {
         handleToOrderDetasil()
       }, 2000);
-    } else if (!searchParamsState.isAroundTrip && (flight?.length === 1)) {
+    } else if (!searchParamsState.isAroundTrip && (flight?.length === 1) && !isLoading) {
       setTimeout(() => {
         handleToOrderDetasil()
-      }, 2000);
+      }, 1000);
     }
   },[handleToOrderDetasil])
 
