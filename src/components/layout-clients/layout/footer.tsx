@@ -17,7 +17,7 @@ const Footer = () => {
             </div>
 
             <div data-aos="fade-right" data-aos-duration="2500">
-                <div className="text-white text-lg font-normal font-['Open Sans'] leading-snug">2024 Travimate. All Rights Reserved.</div>
+                <div className="text-white text-lg font-normal font-['Open Sans'] leading-snug">© 2024 Travimate. All Rights Reserved.</div>
             </div>
         </div>
             
