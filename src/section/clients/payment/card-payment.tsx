@@ -4,6 +4,7 @@ import { useSelector } from 'react-redux'
 import { Dropdown, Label, Radio, Select, TextInput } from "flowbite-react";
 import { selectDataFlighState } from "../../../store/flights/flights.slice";
 import { FlightData } from "../../../types";
+import { formatterCurrency } from '../../../utils';
 
 interface ICardPayment {
   handlePayment?: (e: any) => void;
@@ -15,6 +16,7 @@ interface ICardPayment {
 const CardPayment = ({onSubmit, values, handleSetValueInput}:ICardPayment) => {
 
   const dataDetailFlight = useSelector(selectDataFlighState)
+  const totalFare = dataDetailFlight?.flights?.map((item:any)=>item?.baseFare?.adultBaseFare)?.reduce((a:any, b:any)=>a + b, 0)
 
   const [checked, setChecked] = useState<"bca" | "credit">("bca");
 
@@ -122,12 +124,12 @@ const CardPayment = ({onSubmit, values, handleSetValueInput}:ICardPayment) => {
         dataDetailFlight?.flights?.map((item: FlightData)=>(
           <div className="flex flex-col justify-between h-full">
             <div className="">
-              <div className="text-lg text-slate-600">Order ID : 1</div>
+              <div className="text-lg text-slate-600">Order ID : 2</div>
               <div className="font-bold text-xl text-slate-700 capitalize mt-2">
                 Ringkasan Pesanan
               </div>
               <div className="mt-2 text-lg text-slate-600">
-                02-02-2024 - 04-02-2024
+                10 Maret 2024
               </div>
               <div className="flex justify-start items-center gap-2 mt-2 text-lg text-slate-600">
                 <div>{item?.departure_airport?.city}</div>
@@ -174,7 +176,7 @@ const CardPayment = ({onSubmit, values, handleSetValueInput}:ICardPayment) => {
               <div className="flex justify-between items-center mt-2">
                 <div className="text-sm">Total Pembayaran</div>
                 <div className="flex justify-end items-center">
-                  <div className="font-bold text-2xl">Rp1.368.000</div>
+                  <div className="font-bold text-2xl">{formatterCurrency.format(totalFare)?.replace(/,00$/, '')}</div>
                   <div>
                     <svg
                       width="24"
@@ -209,6 +211,8 @@ const CardPayment = ({onSubmit, values, handleSetValueInput}:ICardPayment) => {
             <div className="w-full bg-white rounded-xl p-16 max-h-screen">
               {renderCardRight}
             </div>
+
+            {/* Bisa diganti ke step 2 : waiting payment waktu pencet bayar */}
             <div className="mt-6">
               <button
                 type="submit"

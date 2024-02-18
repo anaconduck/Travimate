@@ -65,7 +65,7 @@ const NotificationStage = ({setNotification, notification}: INotificationStage) 
                   </h1>
 
                   <h1 className="font-['Open_Sans'] text-2xl text-slate-300 mx-4 leading-[45px] tracking-[-0.1px]">
-                    18 / 02 / 2024
+                    10 / 03 / 2024
                   </h1>
                 </div>
                   <a  href="https://media.suara.com/images/2016/11/24/o_1b2alidjh6nq9gm10896be68cg.jpg" 

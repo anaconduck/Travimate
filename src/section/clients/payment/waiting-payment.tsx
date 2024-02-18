@@ -1,13 +1,24 @@
-import React from "react";
+import React, { useEffect } from "react";
 import gbr from "../../../assets/Group 69.png";
-import { useSelector } from 'react-redux'
+import { useNavigate } from "react-router-dom";
+import { useSelector } from 'react-redux';
 import { selectDataFlighState } from "../../../store/flights/flights.slice";
 import { FlightData } from "../../../types";
-
+import { formatterCurrency } from '../../../utils';
 
 const WaitingPayment = () => {
+  const navigate = useNavigate();
+  const dataDetailFlight = useSelector(selectDataFlighState);
+  const totalFare = dataDetailFlight?.flights?.map((item: any) => item?.baseFare?.adultBaseFare)?.reduce((a: any, b: any) => a + b, 0);
 
-  const dataDetailFlight = useSelector(selectDataFlighState)
+  useEffect(() => {
+    const timeoutId = setTimeout(() => {
+      // Bisa diganti pindah ke step 3 : payment accepted
+      navigate("/notification");
+    }, 10000); // 10 detik dalam milidetik
+
+    return () => clearTimeout(timeoutId);
+  }, [navigate]);
 
   const renderCardLeft = (
     <>
@@ -17,20 +28,20 @@ const WaitingPayment = () => {
         pembayaran berhasil.
       </div>
       <div className="mt-4">
-        <img src={gbr} />
+        <img src={gbr} alt="Placeholder" />
       </div>
     </>
-  ) 
+  )
 
   const renderCardRight = (
     <>
       {
-        dataDetailFlight?.flights?.map((item: FlightData)=>(
-            <div className="flex flex-col justify-between h-full">
+        dataDetailFlight?.flights?.map((item: FlightData) => (
+          <div className="flex flex-col justify-between h-full">
             <div className="">
-              <div className="text-lg text-slate-600">Order ID : 1</div>
+              <div className="text-lg text-slate-600">Order ID : 2</div>
               <div className="font-bold text-xl text-slate-700 capitalize mt-2">Ringkasan Pesanan</div>
-              <div className="mt-2 text-lg text-slate-600">Jul 7, 2024 - Jul 11, 2024</div>
+              <div className="mt-2 text-lg text-slate-600">10 Maret 2024</div>
               <div className="flex justify-start items-center gap-2 mt-2 text-lg text-slate-600">
                 <div>{item?.departure_airport?.city}</div>
                 <div>
@@ -50,14 +61,13 @@ const WaitingPayment = () => {
                 <div>{item?.arrival_airport?.city}</div>
               </div>
               <div className="flex justify-center items-center text-blue-600 font-bold my-5 text-lg">
-              
               </div>
             </div>
             <div className="border-t-2 border-slate-200 pt-4">
               <div className="flex justify-between items-center">
                 <div className="text-sm">Total Pembayaran</div>
                 <div className="flex justify-end items-center">
-                  <div className="font-bold text-2xl">Rp1.368.000</div>
+                  <div className="font-bold text-2xl">{formatterCurrency.format(totalFare)?.replace(/,00$/, '')}</div>
                   <div>
                     <svg
                       width="24"
@@ -98,4 +108,3 @@ const WaitingPayment = () => {
 };
 
 export default WaitingPayment;
-
