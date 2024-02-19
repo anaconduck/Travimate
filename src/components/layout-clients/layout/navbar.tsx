@@ -1,6 +1,8 @@
 import { TbBell, TbPhone, TbUserFilled } from "react-icons/tb"
 import { Link, NavLink } from "react-router-dom"
 import { IUser } from "../../../types/user"
+import logoNav from "../../../assets/logo.png"
+import logoNav1 from "../../../assets/logo-travimate-light.png"
 
 
 interface INavbarClient {
@@ -15,7 +17,7 @@ const Navbar = ({dataClient, navbar}: INavbarClient) => {
         <div className="flex justify-around md:justify-between">
           <NavLink to="/">
             <div className="w-44">
-              <img className="w-full h-full" src={navbar ? '/src/assets/logo.png' : '/src/assets/logo-travimate-light.png'} alt="logo"/>
+              <img className="w-full h-full" src={navbar ? logoNav : logoNav1} alt="logo"/>
             </div>
           </NavLink>
         </div>
