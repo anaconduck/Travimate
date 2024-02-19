@@ -1,3 +1,8 @@
+import ig from "../../../assets/ig.png"
+import fb from "../../../assets/fb.png"
+import tw from "../../../assets/tw.png"
+import yt from "../../../assets/yt.png"
+
 const Footer = () => {
   return (
     <div className="w-full min-h-[28rem] px-12 md:px-32 py-12 flex flex-col md:flex-row justify-between items-center bg-[url('/src/assets/tes.png')] bg-cover bg-end">
@@ -29,11 +34,11 @@ const Footer = () => {
                     <img className="z-10" src="https://i.ibb.co/rHMRV5j/Google-Playstore.png" />
                 </div>
                 <div data-aos="fade-left" data-aos-duration="2000" className="flex flex-row gap-2">
-                    <img className="w-[24px] h-[24px] md:w-[35px] md:h-[35px]" src="/src/assets/ig.png" />
-                    <img className="w-[24px] h-[24px] md:w-[35px] md:h-[35px]" src="/src/assets/fb.png" />
-                    <img className="w-[24px] h-[24px] md:w-[35px] md:h-[35px]" src="/src/assets/tw.png" />
-                    <img className="w-[24px] h-[24px] md:w-[35px] md:h-[35px]" src="/src/assets/yt.png" />
-                    <img className="w-[24px] h-[24px] md:w-[35px] md:h-[35px]" src="/src/assets/ig.png" />
+                    <img className="w-[24px] h-[24px] md:w-[35px] md:h-[35px]" src={ig} />
+                    <img className="w-[24px] h-[24px] md:w-[35px] md:h-[35px]" src={fb} />
+                    <img className="w-[24px] h-[24px] md:w-[35px] md:h-[35px]" src={tw} />
+                    <img className="w-[24px] h-[24px] md:w-[35px] md:h-[35px]" src={yt} />
+                    <img className="w-[24px] h-[24px] md:w-[35px] md:h-[35px]" src={ig} />
                 </div>
             </div>
         </div>
